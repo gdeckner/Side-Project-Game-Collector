@@ -1,0 +1,13 @@
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\bin\Debug\GameRoullete.exe.config
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\bin\Debug\GameRoullete.exe
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\bin\Debug\GameRoullete.pdb
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\bin\Debug\aa\GameRoullete.resources.dll
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\GameRoullete.csprojAssemblyReference.cache
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\GameRoullete.MainMenu.resources
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\GameRoullete.Properties.Resources.resources
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\GameRoullete.MainMenu.aa.resources
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\GameRoullete.csproj.GenerateResource.cache
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\GameRoullete.csproj.CoreCompileInputs.cache
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\aa\GameRoullete.resources.dll
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\GameRoullete.exe
+C:\Users\georgd\source\repos\GameRoullete\GameRoullete\obj\Debug\GameRoullete.pdb
