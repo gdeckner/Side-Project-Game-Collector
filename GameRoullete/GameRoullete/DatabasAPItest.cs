@@ -32,7 +32,7 @@ namespace GameRoullete
             input = "search " + "\"" + input + "\"";
          
            
-            var gammes = await igdb.QueryAsync<Game>(IGDB.Client.Endpoints.Games, query: "search \"Thief\";fields *,id,artworks.image_id;");
+            var gammes = await igdb.QueryAsync<Game>(IGDB.Client.Endpoints.Games, query: "fields *;where franchise = 137;");
             var covertest = await igdb.QueryAsync<Game>(IGDB.Client.Endpoints.Covers, query: "fields *;where id = 55403;"); 
             string othertest = covertest.First().Url.Substring(43);
             var game = gammes.First();

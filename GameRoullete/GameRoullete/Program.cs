@@ -18,15 +18,21 @@ namespace GameRoullete
         [STAThread]
         static void Main()
         {
+            string[] testArray = new string[] { "Playstation 4", "Xbox 360" };
             DatabasAPItest test = new DatabasAPItest();
             PullFromDatabase queryDB = new PullFromDatabase();
-            queryDB.PullSpecificGameAsync("Halo").Wait();
+            queryDB.GetPlatformID();
+            //queryDB.PullSpecificGameAsync("Witcher 3").Wait();
+            //queryDB.PullFranchiseAsync("Halo").Wait();
+            //queryDB.PullTopRatedGamesAsync(testArray).Wait();            
+           
 
-            
+
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainMenu());
-           
+
         }
+       
     }
 }
