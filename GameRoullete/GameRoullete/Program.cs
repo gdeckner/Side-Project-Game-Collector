@@ -25,7 +25,7 @@ namespace GameRoullete
             //queryDB.PullSpecificGameAsync("Witcher 3").Wait();
             //queryDB.PullFranchiseAsync("Halo").Wait();
             //queryDB.PullTopRatedGamesAsync(testArray).Wait();            
-           
+            queryDB.PullGenreIdAsync().Wait();
 
 
             //Application.EnableVisualStyles();
