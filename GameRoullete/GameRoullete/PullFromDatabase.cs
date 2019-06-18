@@ -8,7 +8,7 @@ using IGDB;
 using IGDB.Models;
 using RestEase;
 
-namespace GameRoullete
+namespace Game_Collector
 {
 
 

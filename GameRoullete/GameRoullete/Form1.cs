@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GameRoullete
+namespace Game_Collector
 {
     public partial class MainMenu : Form
     {

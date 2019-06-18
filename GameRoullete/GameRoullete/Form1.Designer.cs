@@ -1,4 +1,4 @@
-﻿namespace GameRoullete
+﻿namespace Game_Collector
 {
     partial class MainMenu
     {

@@ -54,3 +54,19 @@ create table GameRating
 	Constraint PK_GameRating primary key (game_Id)
 
 )
+create table UserLogin
+(
+userId int identity (1,1) primary key,
+userName varchar(50) default System_User
+)
+create table UserGameInfo
+(
+	entry_id int identity (1,1) primary key,
+	game_Id int foreign key references GameInfo(game_Id),
+	game_isOwned bit default 0,
+	game_onWish bit default 0,
+	game_Progress int,
+	userID int foreign key references UserLogin(userId)
+	
+
+)

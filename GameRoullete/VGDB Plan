@@ -1,0 +1,29 @@
+TODO
+
+	Fix Structure of VG Database Program
+		Create Diagram of full outline
+		Implement Skeleton Structure
+		
+		Create Test Structure
+			Implement Test Structure
+		
+	
+		Fill in Outline
+			1. Start with SQL DB
+				1. Interface Methods
+				2. Test those Methods
+				
+			2. Update IGDB program
+				1. Implement test methods
+				2. Fix or update Methods
+			
+			3. Work on Mediator Class
+				1. Mediator --> DB Methods
+				2. Implement Mediator --> DB Test Methods (integration testing)
+				3. Mediator --> IGDB Program
+				4. Implement Mediator -->IGDB Test Methods (integration testing)
+				
+			****Will finish once diagram / outline is finished
+				
+			
+				

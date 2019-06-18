@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "Project": "Server=.\\SQLEXPRESS;Database=GameDataBaseStorage;Trusted_Connection=True;"
+  }
+}
