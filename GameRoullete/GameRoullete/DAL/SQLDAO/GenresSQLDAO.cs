@@ -10,6 +10,12 @@ namespace Game_Collector.DAL
 {
     public class GenresSQLDAO : IGenresDAO
     {
+        private string connectionString;
+
+        public GenresSQLDAO(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
         public bool CheckGenreID(int genreID)
         {
             throw new NotImplementedException();
@@ -20,12 +26,12 @@ namespace Game_Collector.DAL
             throw new NotImplementedException();
         }
 
-        public IList<Genres> PullSpecificGenre(int genreID)
+        public Genres PullSpecificGenre(int genreID)
         {
             throw new NotImplementedException();
         }
 
-        public bool PushAllGenres()
+        public IList<Genres> PushAllGenres()
         {
             throw new NotImplementedException();
         }

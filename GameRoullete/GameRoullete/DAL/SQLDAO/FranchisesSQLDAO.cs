@@ -10,12 +10,18 @@ namespace Game_Collector.DAL
 {
     public class FranchisesSQLDAO : IFranchisesDAO
     {
+        private string connectionString;
+
+        public FranchisesSQLDAO(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
         public bool CheckFranchiseID(int franchiseID)
         {
             throw new NotImplementedException();
         }
 
-        public bool InsertFranchises(int franchiseID, string name)
+        public Franchises InsertFranchises(int franchiseID, string name)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +31,7 @@ namespace Game_Collector.DAL
             throw new NotImplementedException();
         }
 
-        public string PullSpecificFranchise(int franchiseID)
+        public Franchises PullSpecificFranchise(int franchiseID)
         {
             throw new NotImplementedException();
         }

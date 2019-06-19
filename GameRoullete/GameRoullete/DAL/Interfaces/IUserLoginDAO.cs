@@ -17,10 +17,10 @@ namespace Game_Collector.DAL.Interfaces
         bool CheckIfValid(string userName);
 
         //Creates a new user
-        bool CreateLogin(string userName, SecureString password);
+        UserLogin CreateLogin(string userName, SecureString password);
 
         //Change User Password
-        bool ChangeLoginPassword(SecureString password);
+        UserLogin ChangeLoginPassword(SecureString password);
         
     }
 }

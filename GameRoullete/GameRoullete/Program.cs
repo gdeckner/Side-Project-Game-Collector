@@ -26,6 +26,10 @@ namespace Game_Collectoror
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainMenu());
             queryDB.PullGenreIdAsync().Wait();
+            queryDB.GetPlatformID();
+           
+            queryDB.PullSpecificGameAsync("Halo").Wait();
+
 
         }
        

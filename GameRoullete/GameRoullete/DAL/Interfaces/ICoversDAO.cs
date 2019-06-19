@@ -13,10 +13,10 @@ namespace Game_Collector.DAL.Interfaces
         bool CheckCoverValid(int gameId);
 
         //Returns Cover ID and Cover URl based on GameID
-        IList<Covers> PullCover(int gameId);
+        Covers PullCover(int gameId);
 
         //Adds Cover ID and url based on gameID and indicates success
-        bool InsertCover(int coverId,string url);
+        Covers PushCover(int coverId,string url);
 
        
 

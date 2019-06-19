@@ -10,22 +10,23 @@ namespace Game_Collector.DAL
 {
     public class CoversSQLDAO : ICoversDAO
     {
+        private string connectionString;
+
+        public CoversSQLDAO(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
         public bool CheckCoverValid(int gameId)
         {
             throw new NotImplementedException();
         }
 
-        public IList<Covers> InsertCover(int coverId, string url)
+        public Covers PushCover(int coverId, string url)
         {
             throw new NotImplementedException();
         }
 
-        public IList<Covers> PullCover(int gameId)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool ICoversDAO.InsertCover(int coverId, string url)
+        public Covers PullCover(int gameId)
         {
             throw new NotImplementedException();
         }

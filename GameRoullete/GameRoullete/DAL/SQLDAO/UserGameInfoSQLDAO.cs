@@ -10,6 +10,12 @@ namespace Game_Collector.DAL
 {
     public class UserGameInfoSQLDAO : IUserGameInfoDAO
     {
+        private string connectionString;
+
+        public UserGameInfoSQLDAO(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
         public bool CheckIfValid(string userName)
         {
             throw new NotImplementedException();
@@ -20,12 +26,12 @@ namespace Game_Collector.DAL
             throw new NotImplementedException();
         }
 
-        public bool PushUserGameInfo(string userName)
+        public UserGameInfo PushUserGameInfo(string userName)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateOwnedOrWishList(int gameId, bool isOwnedValue, bool isTrue)
+        public UserGameInfo UpdateOwnedOrWishList(int gameId, bool isOwnedValue, bool isTrue)
         {
             throw new NotImplementedException();
         }

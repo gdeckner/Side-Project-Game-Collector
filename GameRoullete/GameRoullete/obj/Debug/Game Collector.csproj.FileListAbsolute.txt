@@ -1,16 +1,6 @@
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game Collector.csprojAssemblyReference.cache
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\GameRoullete.exe.config
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\GameRoullete.MainMenu.resources
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\GameRoullete.Properties.Resources.resources
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\GameRoullete.MainMenu.aa.resources
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game Collector.csproj.GenerateResource.cache
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game Collector.csproj.CoreCompileInputs.cache
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\GameRoullete.exe
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\GameRoullete.pdb
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\GameRoullete.exe.config
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\GameRoullete.exe
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\GameRoullete.pdb
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\aa\GameRoullete.resources.dll
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\Microsoft.Win32.Primitives.dll
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\netstandard.dll
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\System.AppContext.dll
@@ -118,5 +108,15 @@ C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameR
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\Flurl.Http.xml
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\Newtonsoft.Json.xml
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\RestEase.xml
-C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\aa\GameRoullete.resources.dll
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game Collector.csproj.CopyComplete
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\Game_Collector.exe.config
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\Game_Collector.exe
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\Game_Collector.pdb
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\aa\Game_Collector.resources.dll
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game_Collector.exe.config
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game_Collector.MainMenu.resources
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game_Collector.Properties.Resources.resources
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game_Collector.MainMenu.aa.resources
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\aa\Game_Collector.resources.dll
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game_Collector.exe
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game_Collector.pdb

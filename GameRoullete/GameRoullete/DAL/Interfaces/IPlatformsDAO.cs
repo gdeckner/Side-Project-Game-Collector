@@ -13,13 +13,13 @@ namespace Game_Collector.DAL.Interfaces
         bool CheckPlatformID(int platformID);
 
         //Pulls Specific platform Name by the ID
-        IList<Platforms> PullSpecificPlatform(int platformID);
+        PlatformID PullSpecificPlatform(int platformID);
 
         //Returns entire Platform ID and Name table
         IList<Platforms> PullAllPlatforms();
 
         //Adds Platform ID and name to table and returns if it worked
-        bool PushPlatform(int platformID,string name);
+        PlatformID PushPlatform(int platformID,string name);
     }
 }
 

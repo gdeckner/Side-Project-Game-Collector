@@ -10,6 +10,12 @@ namespace Game_Collector.DAL
 {
     class PlatformsSQLDAO : IPlatformsDAO
     {
+        private string connectionString;
+
+        public PlatformsSQLDAO(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
         public bool CheckPlatformID(int platformID)
         {
             throw new NotImplementedException();
@@ -20,12 +26,12 @@ namespace Game_Collector.DAL
             throw new NotImplementedException();
         }
 
-        public IList<Platforms> PullSpecificPlatform(int platformID)
+        public PlatformID PullSpecificPlatform(int platformID)
         {
             throw new NotImplementedException();
         }
 
-        public bool PushPlatform(int platformID, string name)
+        public PlatformID PushPlatform(int platformID, string name)
         {
             throw new NotImplementedException();
         }

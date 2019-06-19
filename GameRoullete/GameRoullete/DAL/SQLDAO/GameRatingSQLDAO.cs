@@ -10,17 +10,23 @@ namespace Game_Collector.DAL
 {
     public class GameRatingSQLDAO : IGameRatingDAO
     {
+        private string connectionString;
+
+        public GameRatingSQLDAO(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
         public bool CheckGameRatingID(int gameID)
         {
             throw new NotImplementedException();
         }
 
-        public IList<GameRating> PullGameRating(int gameID)
+        public GameRating PullGameRating(int gameID)
         {
             throw new NotImplementedException();
         }
 
-        public bool PushGameRating(int gameID, int gameHype, double gamePopularity, int gameRatingCount, double gameTotalRating)
+        public GameRating PushGameRating(int gameID, int gameHype, double gamePopularity, int gameRatingCount, double gameTotalRating)
         {
             throw new NotImplementedException();
         }

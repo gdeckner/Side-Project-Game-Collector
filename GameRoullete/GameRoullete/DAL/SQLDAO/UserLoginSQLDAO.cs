@@ -11,7 +11,13 @@ namespace Game_Collector.DAL
 {
     public class UserLoginSQLDAO : IUserLoginDAO
     {
-        public bool ChangeLoginPassword(SecureString password)
+        private string connectionString;
+
+        public UserLoginSQLDAO(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
+        public UserLogin ChangeLoginPassword(SecureString password)
         {
             throw new NotImplementedException();
         }
@@ -26,7 +32,7 @@ namespace Game_Collector.DAL
             throw new NotImplementedException();
         }
 
-        public bool CreateLogin(string userName, SecureString password)
+        public UserLogin CreateLogin(string userName, SecureString password)
         {
             throw new NotImplementedException();
         }

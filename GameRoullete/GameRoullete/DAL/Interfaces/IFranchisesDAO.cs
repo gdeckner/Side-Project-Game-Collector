@@ -14,13 +14,13 @@ namespace Game_Collector.DAL.Interfaces
 
         
         //Inserts Franchise ID and String into DB and indicates success
-        bool InsertFranchises(int franchiseID,string name);
+        Franchises InsertFranchises(int franchiseID,string name);
 
         //Checks if FranchiseID exists
         bool CheckFranchiseID(int franchiseID);
 
         //Pulls franchise name based on ID
-        string PullSpecificFranchise(int franchiseID);
+        Franchises PullSpecificFranchise(int franchiseID);
 
     
     }

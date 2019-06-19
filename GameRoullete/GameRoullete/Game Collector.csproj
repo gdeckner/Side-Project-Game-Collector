@@ -111,6 +111,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Diagram.cd" />
     <None Include="jsconfig1.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

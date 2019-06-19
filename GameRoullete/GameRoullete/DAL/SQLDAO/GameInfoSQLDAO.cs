@@ -10,6 +10,12 @@ namespace Game_Collector.DAL
 {
     public class GameInfoSQLDAO : IGameInfoDAO
     {
+        private string connectionString;
+
+        public GameInfoSQLDAO(string dbConnectionString)
+        {
+            connectionString = dbConnectionString;
+        }
         public bool CheckGameInfo(string gameName)
         {
             throw new NotImplementedException();
@@ -20,12 +26,12 @@ namespace Game_Collector.DAL
             throw new NotImplementedException();
         }
 
-        public IList<GameInfo> PullGameInfo(string gameName)
+        public GameInfo PullGameInfo(string gameName)
         {
             throw new NotImplementedException();
         }
 
-        public bool PushGameInfo(int gameId, string gameName, string gameDescription, int genreID, List<int> platformID, int gameCover)
+        public GameInfo PushGameInfo(int gameId, string gameName, string gameDescription, int genreID, List<int> platformID, int gameCover)
         {
             throw new NotImplementedException();
         }

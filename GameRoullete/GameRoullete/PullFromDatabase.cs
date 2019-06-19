@@ -25,14 +25,14 @@ namespace Game_Collector
         {
             get
             {
-                return @"https://images.igdb.com/igdb/image/upload/t_cover_big";
+                return @"https://images.igdb.com/igdb/image/upload/t_cover_big/";
             }
 
         }
         private Dictionary<string, string> PlatformData = new Dictionary<string, string>();
         private Dictionary<string, Game> StoreGameData = new Dictionary<string, Game>();
         private Dictionary<string, string> GenreIdData = new Dictionary<string, string>();
-
+        private Dictionary<int, string> CoverIDData = new Dictionary<int, string>();
         //To DO
         // Handle bad inputs
         public async Task PullSpecificGameAsync(string gameName)
@@ -43,10 +43,13 @@ namespace Game_Collector
 
             var games = await igdb.QueryAsync<Game>(IGDB.Client.Endpoints.Games, query: gameName); //Uses the client to query t database then stores it in variable
             var game = games.First();
+            var coverImage = await igdb.QueryAsync<Cover>(IGDB.Client.Endpoints.Covers, query: "fields *; where id = " + game.Cover.Id + ";");
             string title = game.Name;
             if (!StoreGameData.Keys.Contains(title))
             {
+                string url = coverUrl + coverImage.First().ImageId + ".jpg";
                 StoreGameData.Add(title, game);
+                CoverIDData.Add(Convert.ToInt32(game.Cover.Id), url);
             }
 
 

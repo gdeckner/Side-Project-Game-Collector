@@ -24,6 +24,51 @@ TODO
 				4. Implement Mediator -->IGDB Test Methods (integration testing)
 				
 			****Will finish once diagram / outline is finished
+			
+DB Tests
+
+Franchise
+	CheckFranchiseID
+	InsertFranchises
+	PullAllFranchises
+	PullSpecificFranchise
+
+GameInfo
+	CheckGameNameExist
+	MultiPullGame
+	PullGameInfo
+	PushGameInfo
+
+GameRating
+	CheckGameRating
+	PullGameRating
+	PushGameRating
+	
+Genres
+	CheckGenreID
+	PullAllGenres
+	PullSpecificGenre
+	PushGenres
+	
+Platforms
+	CheckPlatformID
+	PullAllPlatforms
+	PullSpecificPlatform
+	PushPlatform
+
+UserGameInfo
+	CheckifNameValid
+	PullUserGameInfo
+	PushUserGameInfo
+	UpdateOwnedorWishList
+	
+UserLogin
+	CheckifNameValid
+	CreateLogin
+	CheckLogin
+	ChangeLoginPassword
+	
+	
 				
 			
 				
