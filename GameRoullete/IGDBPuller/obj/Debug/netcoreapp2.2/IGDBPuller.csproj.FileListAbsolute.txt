@@ -1,0 +1,6 @@
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\bin\Debug\netcoreapp2.2\IGDBPuller.deps.json
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\bin\Debug\netcoreapp2.2\IGDBPuller.dll
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.csprojAssemblyReference.cache
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.csproj.CoreCompileInputs.cache
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.AssemblyInfoInputs.cache
+C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.AssemblyInfo.cs
