@@ -14,7 +14,7 @@ namespace Game_Collector.DAL.Interfaces
 
         
         //Inserts Franchise ID and String into DB and indicates success
-        Franchises InsertFranchises(int franchiseID,string name);
+        void InsertFranchises(int franchiseID,string name);
 
         //Checks if FranchiseID exists
         bool CheckFranchiseID(int franchiseID);

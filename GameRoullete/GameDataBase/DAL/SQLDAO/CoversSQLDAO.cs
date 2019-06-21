@@ -34,15 +34,9 @@ namespace Game_Collector.DAL
             return result;
         }
 
-        public Covers PushCover(int coverId, string url)
+        public void PushCover(int coverId, string url)
         {
-            Covers cover = new Covers
-            {
-                cover_ID = coverId,
-                cover_Url = url
-            };
-            pulledCovers.Add(cover);
-
+            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -56,12 +50,28 @@ namespace Game_Collector.DAL
             }
 
 
-                return cover;
+                
         }
 
         public Covers PullCover(int coverId)
         {
             Covers cover = new Covers();
+            foreach(Covers x in pulledCovers)
+            {
+                if(x.cover_ID == coverId)
+                {
+                    cover.cover_ID = coverId;
+                    cover.cover_Url = x.cover_Url;
+
+                }
+            }
+
+            return cover;
+            
+        }
+
+        public IList<Covers> PullAllCovers()
+        {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -76,7 +86,6 @@ namespace Game_Collector.DAL
                     pulledCovers.Add(cover);
                 }
             }
-            return cover;
         }
     }
 }

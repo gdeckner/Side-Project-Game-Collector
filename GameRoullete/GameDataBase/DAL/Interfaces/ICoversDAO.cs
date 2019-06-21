@@ -17,7 +17,9 @@ namespace Game_Collector.DAL.Interfaces
         Covers PullCover(int gameId);
 
         //Adds Cover ID and url based on gameID and indicates success
-        Covers PushCover(int coverId,string url);
+        void PushCover(int coverId,string url);
+
+        IList<Covers> PullAllCovers();
 
        
 

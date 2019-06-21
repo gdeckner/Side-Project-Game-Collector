@@ -22,6 +22,15 @@ namespace GameDataBase.test.DAL
         [TestMethod]
         public void CheckGameRatingTest()
         {
+            GameRating pushedRating = new GameRating
+            {
+                game_id = 740,
+                game_Hype = 120,
+                game_popularity = 10.3,
+                game_Total_Rating = 85.7,
+                game_Total_Rating_Count = 328
+            };
+            dao.pulledGameRating.Add(pushedRating);
             Assert.AreEqual(true, dao.CheckGameRatingID(740));
             Assert.AreEqual(false,dao.CheckGameRatingID(9545));
         }

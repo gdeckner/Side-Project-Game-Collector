@@ -10,15 +10,17 @@ namespace Game_Collector.DAL.Interfaces
     public interface IUserGameInfoDAO
     {
         //Check if UserName exists
-        bool CheckIfValid(string userName);
+        bool CheckIfValid(int userId);
 
         //Returns all games associated with userName
-        IList<UserGameInfo> PullUserGameInfo(string userName);
+        IList<UserGameInfo> PullUserGameInfo(int userId);
 
         //Adds a game associated with userName and returns success
-        UserGameInfo PushUserGameInfo(string userName,int gameId);
+        void PushUserGameInfo(int userId,int gameId);
 
         //Modifies the game associated with username with if it is owned or on the wishlist
-        UserGameInfo UpdateOwnedOrWishList(int gameId, bool isOwnedValue, bool isTrue,string userName);
+        void UpdateOwnedOrWishList(int gameId, bool isOwnedValue, bool isTrue,int userId);
+
+
     }
 }

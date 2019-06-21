@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Game_Collector.DAL
 {
@@ -17,24 +18,76 @@ namespace Game_Collector.DAL
         {
             connectionString = dbConnectionString;
         }
-        public bool CheckIfValid(string userName)
+        public bool CheckIfValid(int userId)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = connection.CreateCommand();
+                connection.Open();
+                cmd.CommandText = @"select userId from UserGameInfo where userId = @userID";
+                cmd.Parameters.AddWithValue("@userID", userId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    result = true;
+                }
+            }
+
+            return result;
         }
 
-        public IList<UserGameInfo> PullUserGameInfo(string userName)
+        public IList<UserGameInfo> PullUserGameInfo(int userId)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = connection.CreateCommand();
+                connection.Open();
+                cmd.CommandText = @"Select * from UserGameInfo where userId = @userID";
+                cmd.Parameters.AddWithValue("@userID", userId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    UserGameInfo newGameInfo = new UserGameInfo
+                    {
+                        userId = userId,
+                        game_Id = (int)reader["game_Id"],
+                        game_isOwned = (bool)reader["game_isOwned"],
+                        game_onWish = (bool)reader["game_onWish"],
+                        game_Progress = Convert.ToDouble(reader["game_Progress"]),
+                        entry_Id = (int)reader["entry_Id"]
+                    };
+                }
+            }
+            return pulledGameInfo;
         }
 
-        public UserGameInfo PushUserGameInfo(string userName,int gameId)
+        public void PushUserGameInfo(int userId,int gameId)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = connection.CreateCommand();
+                connection.Open();
+                cmd.CommandText = @"insert into UserGameInfo (game_Id,userId) values (@game_Id,@userId)";
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@game_Id", gameId);
+                cmd.ExecuteNonQuery();
+            }
         }
 
-        public UserGameInfo UpdateOwnedOrWishList(int gameId, bool isOwnedValue, bool isTrue,string userName)
+        public void UpdateOwnedOrWishList(int gameId, bool isOwnedValue, bool isTrue,int userId)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = connection.CreateCommand();
+                connection.Open();
+                cmd.CommandText = @"insert into UserGameInfo (game_Id,userId,game_isOwned,game_onWish,game_Progress) values (@game_Id,@userId,@gameOwned,@gameWish)";
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@game_Id", gameId);
+                cmd.Parameters.AddWithValue("@gameOwned", isOwnedValue);
+                cmd.Parameters.AddWithValue("@gameWish", isTrue);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

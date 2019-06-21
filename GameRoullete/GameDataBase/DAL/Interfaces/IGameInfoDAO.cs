@@ -19,6 +19,6 @@ namespace Game_Collector.DAL.Interfaces
         IList<GameInfo> PullAllGameInfoFromDB();
 
         //Adds game info to DB and returns if it worked
-        GameInfo PushGameInfo(int gameId, string gameName, string gameDescription, int genreID, int platformID,int franchiseId, int gameCover);
+        void PushGameInfo(int gameId, string gameName, string gameDescription, int genreID, int platformID,int franchiseId, int gameCover);
     }
 }

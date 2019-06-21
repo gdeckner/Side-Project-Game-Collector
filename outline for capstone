@@ -1,0 +1,80 @@
+Capstone
+
+Views List of avaiable parks, sorted alph by name
+	includes id,name,location,est date,area,annual vist count, description
+	
+
+Ability to select a park that cutomer is visiting and avail camp grounds for that park
+	id,name,open month,closing month, daily fee
+	
+Select campground and search for avail and make reservation
+	A. Reserv search only requires desird camp, start and end date
+	B. marked as unvailb if preffered range intersects with existing reservation
+	c. if none avaiable, informs user and asks if they want to pick different date range
+	d. Top 5 avaiable displayed along with cost for Total Stay
+	e. if off season, campsites should not be avaiable
+	f. Search requirements they have for max occ, wheelchair,rv and its length if required and if utility hookup is nec
+
+
+Parks DAO
+	Pulls infor
+	
+	6-18 - 622
+
+6-2-3 
+
+
+
+
+campground start enddate 
+	if that campsite(checkreserved)
+		if no adds to list or display
+		
+		
+	View Parks
+	Choose a park
+	(Provides a list of park names)
+		After Selecting a park
+			Lists
+				Name
+				Location 
+				Estab
+				Area
+				Visitor count
+				Description
+				
+				Select a command
+				View Campgrounds
+				Search for reservation
+				Return
+				
+					Park Campgrounds
+					Name
+						Reservation List
+							site Name Open Close Daily Fee
+							
+					Select a command
+						Search for available reservation
+						go back
+						
+							search for reservation
+								Which campground (0 to cancel)
+								Arival Date
+								Depature Date
+								
+								Results mathing criterial
+								
+								site no max occup acceib rv utility cost
+								
+								which site should be reserved 0 to cancel
+								name of reservation
+								
+								The reservation has been made, confirmation ID
+							
+							
+					
+				
+	q to quit
+	
+	
+	

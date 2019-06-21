@@ -35,38 +35,85 @@ Franchise
 
 GameInfo
 	CheckGameNameExist
-	MultiPullGame
-	PullGameInfo
-	PushGameInfo
+	MultiPullGameTest
+	PullGameInfoTest
+	PushGameInfoTest
 
 GameRating
-	CheckGameRating
-	PullGameRating
-	PushGameRating
+	CheckGameRatingTest
+	PullGameRatingTest
+	PushGameRatingTest
 	
 Genres
-	CheckGenreID
-	PullAllGenres
-	PullSpecificGenre
-	PushGenres
+	CheckGenreIDTest
+	PullAllGenresTest
+	PullSpecificGenreTest
+	PushGenresTest
 	
 Platforms
-	CheckPlatformID
-	PullAllPlatforms
-	PullSpecificPlatform
-	PushPlatform
+	CheckPlatformIDTest
+	PullAllPlatformsTest
+	PullSpecificPlatformTest
+	PushPlatformTest
 
 UserGameInfo
-	CheckifNameValid
-	PullUserGameInfo
-	PushUserGameInfo
-	UpdateOwnedorWishList
+	CheckifNameValidTest
+	PullUserGameInfoTest
+	PushUserGameInfoTest
+	UpdateOwnedorWishListTest
 	
 UserLogin
-	CheckifNameValid
-	CreateLogin
-	CheckLogin
-	ChangeLoginPassword
+	CheckifNameValidTest
+	CreateLoginTest
+	CheckLoginTest
+	ChangeLoginPasswordTest
+	
+	
+	DB Overhaul
+	
+	Covers
+		Check if DB has Cover
+		Pull Cover from DB
+		Push Cover Into DB
+	Genres
+		Check if DB has genre
+		Pull specific genre
+		Push Genre 
+	Franchises
+		 Check if DB has Franchise
+		 Pull Specific Franchise
+		 Push Franchise
+	
+	Platforms
+		Check if DB has platform
+		Pull Specific Franchise
+		Push Franchise
+	
+	GameInfo
+		(int) Checks if Game Exists
+		Pull One Game
+		Push Game
+	
+	GameRating
+		Pull Game Info
+		Push Game Info
+	
+	UserGameInfo
+		Modify UserGameInfo
+		Push Game 
+		Pull Game
+	UserInfo
+	
+	Find a game
+	if we dont have that game we pull from IGDN and store on SQL
+		1. Check if we have it on DB
+				Pull all the IDS
+			if no we pull from IGDB
+			if yes we use that data
+		
+		
+	
+		
 	
 	
 				

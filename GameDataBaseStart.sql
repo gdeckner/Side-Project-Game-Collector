@@ -65,10 +65,10 @@ Create Table UserGameInfo
 create table GameRating
 (
 	game_Id int foreign key references GameInfo(game_Id),
-	game_Total_Rating decimal,
-	game_Total_Rating_Count decimal,
-	game_Hype decimal,
-	game_Popularity decimal
+	game_Total_Rating decimal(20,2),
+	game_Total_Rating_Count decimal(20,2),
+	game_Hype decimal(20,2),
+	game_Popularity decimal(20,2)
 
 	
 )

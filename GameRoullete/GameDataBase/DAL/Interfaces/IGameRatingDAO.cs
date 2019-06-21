@@ -15,7 +15,8 @@ namespace Game_Collector.DAL.Interfaces
         //Pulls game rating based on gameID
         GameRating PullGameRating(int gameID);
 
+        IList<GameRating> PullAllGameRatings();
         //Inserts gameRating values into the DB and verifies if it worked
-        GameRating PushGameRating(int gameID, int gameHype, double gamePopularity, int gameRatingCount, double gameTotalRating);
+        void PushGameRating(int gameID, double gameHype, double gamePopularity, double gameRatingCount, double gameTotalRating);
     }
 }

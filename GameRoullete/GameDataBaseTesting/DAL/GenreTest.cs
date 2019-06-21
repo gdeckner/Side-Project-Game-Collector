@@ -22,6 +22,11 @@ namespace GameDataBase.test.DAL
         [TestMethod]
         public void CheckGenreIDTest()
         {
+            Genres test = new Genres
+            {
+                genre_iD = 5
+            };
+            dao.pulledGenres.Add(test);
             Assert.AreEqual(true, dao.CheckGenreID(5));
             Assert.AreEqual(false, dao.CheckGenreID(92893));
         }
@@ -36,8 +41,8 @@ namespace GameDataBase.test.DAL
         [TestMethod]
         public void PullSpecificGenreTest()
         {
-            Genres test = dao.PullSpecificGenre(5);
-
+            Genres test = new Genres();
+            test = dao.PullSpecificGenre(5);
             Assert.AreEqual("Shooter", test.genre_Name);
         }
         [TestMethod]
@@ -54,9 +59,9 @@ namespace GameDataBase.test.DAL
             dao.PushGenre(987, "Spooky");
             IList <Genres> test = dao.PullAllGenres();
 
-            Assert.AreEqual("Spooky", test[2].genre_Name);
-            Assert.AreEqual(987, test[2].genre_iD);
-            Assert.AreEqual(3, test.Count);
+            Assert.AreEqual("Spooky", test[3].genre_Name);
+            Assert.AreEqual(987, test[3].genre_iD);
+            Assert.AreEqual(4, test.Count);
             Assert.AreEqual(true, dao.CheckGenreID(987));
         }
 

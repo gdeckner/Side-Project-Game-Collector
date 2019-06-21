@@ -19,7 +19,7 @@ namespace Game_Collector.DAL.Interfaces
         IList<Genres> PullAllGenres();
 
         //Adds new Genres to table
-        Genres PushGenre(int genreId,string genreName);
+        void PushGenre(int genreId,string genreName);
 
 
     }
