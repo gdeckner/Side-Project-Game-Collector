@@ -12,84 +12,52 @@ namespace Game_Collector.DAL
     public class GameRatingSQLDAO : IGameRatingDAO
     {
         private string connectionString;
-        public IList<GameRating> pulledGameRating = new List<GameRating>();
-
         public GameRatingSQLDAO(string dbConnectionString)
         {
             connectionString = dbConnectionString;
         }
-        public bool CheckGameRatingID(int gameID)
-        {
-            bool result = false;
-            foreach (GameRating x in pulledGameRating)
-            {
-                if (x.game_id == gameID)
-                {
-                    result = true;
-                    break;
-                }
-            }
 
-            return result;
-        }
-
-        public GameRating PullGameRating(int gameID)
+        public GameRating PullGameRating(int rating_Id)
         {
-            
+            GameRating pulledGameRating = new GameRating();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "Select * from GameRating where game_Id = @gameId";
-                cmd.Parameters.AddWithValue("@gameId", gameID);
+                cmd.CommandText = @"select * from Ratings 
+                where rating_id = @ratingId";
+                cmd.Parameters.AddWithValue("@ratingId", rating_Id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    GameRating gameRatingPull = new GameRating
-                    {
-                        game_id = gameID,
-                        game_popularity = Convert.ToDouble(reader["game_Popularity"]),
-                        game_Total_Rating = Convert.ToDouble(reader["game_Total_Rating"]),
-                        game_Hype = Convert.ToDouble(reader["game_Popularity"]),
-                        game_Total_Rating_Count = Convert.ToDouble(reader["game_Total_Rating_Count"])
-                    };
-                     pulledGameRating.Add(gameRatingPull);
-                     return gameRatingPull; 
+                    pulledGameRating.game_Hype = (int)reader["hype"];
+                    pulledGameRating.game_popularity = (int)reader["popularity"];
+                    pulledGameRating.rating_Id = rating_Id;
+                    pulledGameRating.game_Total_Rating = (int)reader["rating"];
+                    pulledGameRating.game_Total_Rating_Count = (int)reader["rating_count"];
                 }
+
             }
-            return null;
-            
+            return pulledGameRating;
         }
 
-        public GameRating PushGameRating(int gameID, double gameHype, double gamePopularity, double gameRatingCount, double gameTotalRating)
+        public int PushGameRating(int gameHype, int gamePopularity, int gameRatingCount, int gameTotalRating)
         {
-            GameRating pushedRating = new GameRating
-            {
-                game_id = gameID,
-                game_Hype = gameHype,
-                game_popularity = gamePopularity,
-                game_Total_Rating = gameTotalRating,
-                game_Total_Rating_Count = gameRatingCount
-            };
-            pulledGameRating.Add(pushedRating);
-
+            int ratingId;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "insert into GameRating (game_Id,game_Popularity,game_Total_Rating,game_Total_Rating_Count,game_Hype) values (@gameId,@gamePopularity,@totalRating,@totalRatingCount,@gameHype)";
-                cmd.Parameters.AddWithValue("@gameId", gameID);
-                cmd.Parameters.AddWithValue("@gamePopularity", gamePopularity);
-                cmd.Parameters.AddWithValue("@totalRating", gameTotalRating);
-                cmd.Parameters.AddWithValue("@totalRatingCount", gameRatingCount);
-                cmd.Parameters.AddWithValue("@gameHype", gameHype);
-
-                cmd.ExecuteNonQuery();
+                cmd.CommandText = @" insert into Ratings (hype,popularity,rating,rating_count)
+                values(@hype,@popularity,@rating,@rating_count)
+                select scope_identity()";
+                cmd.Parameters.AddWithValue("@hype", gameHype);
+                cmd.Parameters.AddWithValue("@popularity", gamePopularity);
+                cmd.Parameters.AddWithValue("@rating", gameTotalRating);
+                cmd.Parameters.AddWithValue("@rating_count", gameRatingCount);
+                ratingId = Convert.ToInt32(cmd.ExecuteScalar());
             }
-
-
-            return pushedRating;
+            return ratingId;
         }
     }
 }

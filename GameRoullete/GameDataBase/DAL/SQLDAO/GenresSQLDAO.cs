@@ -12,93 +12,40 @@ namespace Game_Collector.DAL
     public class GenresSQLDAO : IGenresDAO
     {
         private string connectionString;
-        public IList<Genres> pulledGenres = new List<Genres>();
 
         public GenresSQLDAO(string dbConnectionString)
         {
             connectionString = dbConnectionString;
         }
+
         public bool CheckGenreID(int genreID)
         {
-            bool result = false;
-            foreach (Genres x in pulledGenres)
-            {
-                if (x.genre_iD == genreID)
-                {
-                    result = true;
-                    break;
-                }
-            }
+            bool isValidGenre = false;
 
-            return result;
-        }
-
-        public IList<Genres> PullAllGenres()
-        {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "select * from Genres";
-
+                cmd.CommandText = @"select genre_id,genre_name from Genres
+                 where genre_id = @genreId";
+                cmd.Parameters.AddWithValue("@genreId", genreID);
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    pulledGenres.Add(new Genres
-                    {
-                        genre_iD = (int)reader["genre_Id"],
-                        genre_Name = (string)reader["genre_Name"]
-
-                    });
+                    isValidGenre = true;
                 }
             }
-            return pulledGenres;
-
+            return isValidGenre;
         }
 
         public Genres PullSpecificGenre(int genreID)
         {
-            Genres genre = new Genres();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "Select * from Genres where genre_Id = @genreId";
-                cmd.Parameters.AddWithValue("@genreId", genreID);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    genre.genre_iD = genreID;
-                    genre.genre_Name = (string)reader["genre_Name"];
-                    pulledGenres.Add(genre);
-                }
-            }
-            return genre;
+            throw new NotImplementedException();
         }
 
-        public Genres PushGenre(int genreId, string genreName)
+        public void PushGenre(int genreId, string genreName)
         {
-            Genres genre = new Genres
-            {
-                genre_iD = genreId,
-                genre_Name = genreName
-            };
-            pulledGenres.Add(genre);
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "insert into Genres (genre_Id,genre_Name) values(@genreId,@genreName)";
-                cmd.Parameters.AddWithValue("@genreId", genreId);
-                cmd.Parameters.AddWithValue("@genreName", genreName);
-
-                cmd.ExecuteNonQuery();
-            }
-
-
-            return genre;
+            throw new NotImplementedException();
         }
     }
 }

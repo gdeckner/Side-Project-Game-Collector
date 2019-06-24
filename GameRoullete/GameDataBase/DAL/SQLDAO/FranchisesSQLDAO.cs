@@ -12,86 +12,62 @@ namespace Game_Collector.DAL
     public class FranchisesSQLDAO : IFranchisesDAO
     {
         private string connectionString;
-        public IList<Franchises> pulledFranchises = new List<Franchises>();
 
         public FranchisesSQLDAO(string dbConnectionString)
         {
             connectionString = dbConnectionString;
         }
-        public bool CheckFranchiseID(int franchiseID)
+
+        public void PushFranchise(int franchiseID, string name)
         {
-            bool result = false;
-            foreach (Franchises x in pulledFranchises)
-            {
-                if (x.franchise_Id == franchiseID)
-                {
-                    result = true;
-                    break;
-                }
-            }
-
-            return result;
-        }
-
-        public Franchises InsertFranchises(int franchiseID, string name)
-        {
-            Franchises franchise = new Franchises
-            {
-                franchise_Id = franchiseID,
-                franchise_Name = name
-            };
-            pulledFranchises.Add(franchise);
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "insert into Franchises (franchise_Id,franchise_Name) values(@franchId,@franchName)";
-                cmd.Parameters.AddWithValue("@franchId", franchiseID);
-                cmd.Parameters.AddWithValue("@franchName", name);
-
+                cmd.CommandText = @"insert into Franchises (franchise_id,franchise_name) values(@franchiseId,@franchiseName)";
+                cmd.Parameters.AddWithValue("@franchiseId", franchiseID);
+                cmd.Parameters.AddWithValue("@franchiseName", name);
                 cmd.ExecuteNonQuery();
             }
-
-
-            return franchise;
         }
 
-        public IList<Franchises> PullFranchise()
+        public bool CheckFranchiseID(int franchiseID)
         {
-            
+            bool isValdidFranchise = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "select * from Franchises";
-
+                cmd.CommandText = @"select franchise_id,franchise_name from Franchises
+                where franchise_id = @franchiseId";
+                cmd.Parameters.AddWithValue("@franchiseId", franchiseID);
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                if(reader.Read())
                 {
-                    pulledFranchises.Add(new Franchises
-                    {
-                        franchise_Id = (int)reader["franchise_Id"],
-                        franchise_Name = (string)reader["franchise_Name"]
-
-                    });
+                    isValdidFranchise = true;
                 }
             }
-            return pulledFranchises;
-            
+            return isValdidFranchise;
         }
 
         public Franchises PullSpecificFranchise(int franchiseID)
         {
-           for(int i = 0;i<pulledFranchises.Count;i++)
+            Franchises pulledFranchise = new Franchises();
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                if(pulledFranchises[i].franchise_Id == franchiseID)
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select franchise_id,franchise_name from Franchises
+                where franchise_id = @franchiseId";
+                cmd.Parameters.AddWithValue("@franchiseId", franchiseID);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
                 {
-                    return pulledFranchises[i];
+                    pulledFranchise.franchise_Id = (int)reader["franchise_id"];
+                    pulledFranchise.franchise_Name = (string)reader["franchise_name"];
                 }
             }
-            return null;
+            return pulledFranchise;
         }
     }
 }

@@ -12,8 +12,6 @@ namespace Game_Collector.DAL
     public class UserGameInfoSQLDAO : IUserGameInfoDAO
     {
         private string connectionString;
-        public IList<UserGameInfo> pulledGameInfo = new List<UserGameInfo>();
-
         public UserGameInfoSQLDAO(string dbConnectionString)
         {
             connectionString = dbConnectionString;
@@ -59,7 +57,7 @@ namespace Game_Collector.DAL
                     };
                 }
             }
-            return pulledGameInfo;
+            return null;
         }
 
         public void PushUserGameInfo(int userId,int gameId)

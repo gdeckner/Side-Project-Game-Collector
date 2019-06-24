@@ -9,12 +9,9 @@ namespace Game_Collector.DAL.Interfaces
 {
     public interface IFranchisesDAO
     {
-        //Pulls all franchises ID and their names
-        IList<Franchises> PullFranchise();
-
         
-        //Inserts Franchise ID and String into DB and indicates success
-        void InsertFranchises(int franchiseID,string name);
+        //Inserts Franchise ID and String into DB
+        void PushFranchise(int franchiseID,string name);
 
         //Checks if FranchiseID exists
         bool CheckFranchiseID(int franchiseID);

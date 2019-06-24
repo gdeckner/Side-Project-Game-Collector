@@ -37,11 +37,20 @@ namespace GameDataBase.test.DAL
         [TestInitialize]
         public virtual void Setup()
         {
-            string sql = File.ReadAllText("VideoGameDataBaseTest.sql");
+            
             transaction = new TransactionScope();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = @"delete from UserGameInfo
+                                    delete from UserInfo
+                                    delete from Games
+                                    delete from Ratings
+                                    delete from Covers
+                                    delete from Platforms
+                                    delete from Genres
+                                    delete from Franchises";
+                
                 conn.Open();
                 cmd.ExecuteNonQuery();
 

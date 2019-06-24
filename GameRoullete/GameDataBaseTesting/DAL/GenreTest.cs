@@ -18,51 +18,34 @@ namespace GameDataBase.test.DAL
         {
             base.Setup();
             dao = new GenresSQLDAO(ConnectionString);
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"insert into Genres (genre_id,genre_name) values(10,'Code Fun')";
+                cmd.ExecuteNonQuery();
+            }
         }
         [TestMethod]
         public void CheckGenreIDTest()
         {
-            Genres test = new Genres
-            {
-                genre_iD = 5
-            };
-            dao.pulledGenres.Add(test);
-            Assert.AreEqual(true, dao.CheckGenreID(5));
-            Assert.AreEqual(false, dao.CheckGenreID(92893));
-        }
-        [TestMethod]
-        public void PullAllGenresTest()
-        {
-            IList<Genres> test = dao.PullAllGenres();
-            Assert.AreEqual(2, test.Count);
-            Assert.AreEqual(5, test[0].genre_iD);
-            Assert.AreEqual(28, test[1].genre_iD);
+            Assert.AreEqual(true, dao.CheckGenreID(10));
+            Assert.AreEqual(false, dao.CheckGenreID(200));
         }
         [TestMethod]
         public void PullSpecificGenreTest()
         {
             Genres test = new Genres();
-            test = dao.PullSpecificGenre(5);
-            Assert.AreEqual("Shooter", test.genre_Name);
+            test = dao.PullSpecificGenre(10);
+            Assert.AreEqual("Code Fun", test.genre_Name);
         }
         [TestMethod]
-        public void PushGenresTest()
+        public void PushGenreTest()
         {
-            Genres test = dao.PushGenre(987, "Spooky");
-            Assert.AreEqual(987, test.genre_iD);
-            Assert.AreEqual("Spooky", test.genre_Name);
-
-        }
-        [TestMethod]
-        public void FullPushGenreTest()
-        {
-            dao.PushGenre(987, "Spooky");
-            IList <Genres> test = dao.PullAllGenres();
-
-            Assert.AreEqual("Spooky", test[3].genre_Name);
-            Assert.AreEqual(987, test[3].genre_iD);
-            Assert.AreEqual(4, test.Count);
-            Assert.AreEqual(true, dao.CheckGenreID(987));
+            dao.PushGenre(23, "Turtles");
+            Genres test = new Genres();
+            test = dao.PullSpecificGenre(23);
+            Assert.AreEqual("Turtles", test.genre_Name);
         }
 
 

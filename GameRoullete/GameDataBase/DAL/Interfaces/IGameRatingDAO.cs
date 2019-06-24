@@ -9,14 +9,12 @@ namespace Game_Collector.DAL.Interfaces
 {
     public interface IGameRatingDAO
     {
-        //Checks if gameID is valid
-        bool CheckGameRatingID(int gameID);
-
+       
         //Pulls game rating based on gameID
-        GameRating PullGameRating(int gameID);
+        GameRating PullGameRating(int rating_Id);
 
-        IList<GameRating> PullAllGameRatings();
-        //Inserts gameRating values into the DB and verifies if it worked
-        void PushGameRating(int gameID, double gameHype, double gamePopularity, double gameRatingCount, double gameTotalRating);
+        //Inserts gameRating values into the DB
+        int PushGameRating(int gameHype, int gamePopularity, int gameRatingCount, int gameTotalRating);
     }
+        
 }

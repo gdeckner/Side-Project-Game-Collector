@@ -4,7 +4,7 @@ GO
 
 --
 IF EXISTS(select * from sys.databases where name='GameDataBaseStorage')
-DROP DATABASE World;
+DROP DATABASE GameDataBaseStorage;
 GO
 
 
@@ -16,62 +16,65 @@ USE GameDataBaseStorage
 GO
 
 ---------------------------------------------------------------
-create table Covers
-(
-cover_Id int primary key,
-cover_Url varchar(200)
-)
-create table Franchises
-(
-franchise_Id int primary key,
-franchise_Name varchar(50)
-)
-create table Genres
-(
-genre_Id int primary key,
-genre_Name varchar(50) not null
-)
-create table Platforms
-(
-	platform_Id int primary key,
-	platform_Name varchar(50) not null
-)
-create table GameInfo
-(
-	game_Id int primary key,
-	game_Name varchar(50) not null,
-	game_Description varchar(900) not null,
-	genre_Id int foreign key references Genres(genre_Id),
-	platform_Id int foreign key references Platforms(platform_Id),
-	franchise_Id int foreign key references Franchises(franchise_Id),
-	cover_Id int foreign key references Covers(cover_Id)
-)
-Create table UserLogin
-(
-	userId int primary key,
-	userName varchar(100) Unique,
-	userPassword varchar(100)
 
-)
-Create Table UserGameInfo
+Create table Franchises
 (
-	id int identity (1,1) primary key,
-	game_Id int foreign key references GameInfo(game_Id),
-	game_isOwned bit default 0,
-	game_onWish bit default 0,
-	game_Progress decimal,
-	userId int foreign key references UserLogin(userId)
+franchise_id int primary key,
+franchise_name varchar(100) not null
 )
-create table GameRating
+Create table Genres
 (
-	game_Id int foreign key references GameInfo(game_Id),
-	game_Total_Rating decimal(20,2),
-	game_Total_Rating_Count decimal(20,2),
-	game_Hype decimal(20,2),
-	game_Popularity decimal(20,2)
-
-	
+genre_id int primary key,
+genre_name varchar(100) not null
+)
+Create table Platforms
+(
+platform_id int primary key,
+platform_name varchar(100) not null
+)
+Create table Covers
+(
+cover_id int primary key,
+cover_url varchar(100) not null
+)
+Create table Ratings
+(
+rating_id int identity (1,1) primary key,
+popularity int null,
+hype int null,
+rating int null,
+rating_count int null
+)
+Create table Games
+(
+game_id int primary key,
+game_description varchar(1000) not null,
+game_name varchar(100) not null,
+rating_id int foreign key references Ratings(rating_id),
+platform_id int foreign key references Platforms(platform_id),
+cover_id int foreign key references Covers(cover_id),
+genre_id int foreign key references Genres(genre_id),
+franchise_id int foreign key references Franchises(franchise_id)
 )
 
+Create table UserInfo
+(
+userName varchar(200) primary key,
+password varchar(200) not null,
+salt varchar (200) not null
+)
+create table UserGameInfo
+(
+EntryId int identity (1,1) primary key,
+userName varchar(200) foreign key references UserInfo(userName),
+game_id int  foreign key references Games(game_id),
+progress int null,
+owned bit default 0,
+wishlist bit default 0
 
+)
+
+
+
+				
 

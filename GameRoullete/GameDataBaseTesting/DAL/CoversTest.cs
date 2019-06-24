@@ -1,6 +1,7 @@
 ﻿using Game_Collector.DAL;
 using Game_Collector.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Data.SqlClient;
 
 namespace GameDataBase.test.DAL
 {
@@ -14,52 +15,64 @@ namespace GameDataBase.test.DAL
         {
             base.Setup();
             dao = new CoversSQLDAO(ConnectionString);
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"insert into Covers (cover_id,cover_url) values(123,'testurl.com')";
+                cmd.ExecuteNonQuery();
+            }
             
         }
         [TestMethod]
         public void CheckCoverValidTest()
         {
-            Covers test = new Covers
-            {
-                cover_ID = 55403
-            };
-            dao.pulledCovers.Add(test);
-            Assert.AreEqual(true, dao.CheckCoverValid(55403));
-            Assert.AreEqual(false, dao.CheckCoverValid(123444));
-           
-
+            Assert.AreEqual(true, dao.CheckCoverValid(123));
+            Assert.AreEqual(false, dao.CheckCoverValid(123213123));
 
         }
         [TestMethod]
         public void PullCoverTest()
         {
-            Covers cover = new Covers();
-            string url = "https://images.igdb.com/igdb/image/upload/t_cover_big/bcotwv6rapvdglcahxi3.jpg";
-            cover = dao.PullCover(55403);
-
-            Assert.AreEqual(55403, cover.cover_ID);
-            Assert.AreEqual(url, cover.cover_Url);
+            Covers test = new Covers();
+            test = dao.PullCover(123);
+            Assert.AreEqual(123, test.cover_ID);
+            Assert.AreEqual("testurl.com", test.cover_Url);
 
         }
         [TestMethod]
         public void PushCoverTest()
         {
-            Covers test = dao.PushCover(99, "CoderwarsImage");
-            Assert.AreEqual(99, test.cover_ID);
-            Assert.AreEqual("CoderwarsImage", test.cover_Url);
+            Covers test = new Covers();
+            dao.PushCover(666, "newurltest.com");
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"Select * from Covers where cover_Id = 666";
+                cmd.ExecuteNonQuery();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    test.cover_ID = (int)reader["cover_id"];
+                    test.cover_Url = (string)reader["cover_url"];
+                }
+            }
+            Assert.AreEqual(666, test.cover_ID);
+            Assert.AreEqual("newurltest.com", test.cover_Url);
+               
 
         }
         [TestMethod]
         public void FullCoverTest()
         {
-            dao.PushCover(99, "SuperCoderWars");
-           Covers test=  dao.PullCover(99);
-
-            Assert.AreEqual(99, test.cover_ID);
-            Assert.AreEqual("SuperCoderWars", test.cover_Url);
-            Assert.AreEqual(true, dao.CheckCoverValid(99));
-
-
+            dao.PushCover(666, "newurltest.com");
+            Covers test = new Covers();
+            test = dao.PullCover(666);
+            Assert.AreEqual(true, dao.CheckCoverValid(666));
+            Assert.AreEqual(666, test.cover_ID);
+            Assert.AreEqual("newurltest.com", test.cover_Url);
+            
         }
     }
 }

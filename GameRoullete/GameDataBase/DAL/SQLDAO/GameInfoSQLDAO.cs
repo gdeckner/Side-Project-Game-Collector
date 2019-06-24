@@ -12,109 +12,106 @@ namespace Game_Collector.DAL
     public class GameInfoSQLDAO : IGameInfoDAO
     {
         private string connectionString;
-        public IList<GameInfo> pulledGame = new List<GameInfo>();
-
         public GameInfoSQLDAO(string dbConnectionString)
         {
             connectionString = dbConnectionString;
         }
-        public bool CheckGameInfo(string gameName)
+
+        public int CheckGameInfo(string gameName)
         {
-            bool result = false;
-            foreach(GameInfo x in pulledGame)
+            int result = 0;
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                if (x.gameName == gameName)
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select game_name from Games
+                where game_name Like @gameName";
+                cmd.Parameters.AddWithValue("@gameName", gameName +"%");
+                SqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
                 {
-                    result = true;
-                    break;
+                    result += 1;
                 }
             }
             return result;
         }
 
-        public IList<GameInfo> PullAllGameInfoFromDB()
+        public GameInfo PullGameInfo(string gameName)
         {
+            GameInfo pulledGame = new GameInfo();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "Select * from GameInfo";
+                cmd.CommandText = @"select top(1) * from Games
+                where game_name Like @gameName
+                order by game_name";
+                cmd.Parameters.AddWithValue("@gameName", gameName + "%");
                 SqlDataReader reader = cmd.ExecuteReader();
                 while(reader.Read())
                 {
-                    pulledGame.Add(new GameInfo
-                    {
-                        game_ID = (int)reader["game_Id"],
-                        gameName = (string)reader["game_Name"],
-                        gameDescription = (string)reader["game_Description"],
-                        genreID = (int)reader["genre_Id"],
-                        platformID = (int)reader["platform_Id"],
-                        franchiseID = (int)reader["franchise_Id"],
-                        coverID = (int)reader["cover_Id"]
-      
-                    });
+                    
+                    pulledGame.franchiseID = (int)reader["franchise_id"];
+                    pulledGame.gameDescription = (string)reader["game_description"];
+                    pulledGame.gameName = (string)reader["game_name"];
+                    pulledGame.game_ID = (int)reader["game_id"];
+                    pulledGame.genreID = (int)reader["genre_id"];
+                    pulledGame.platformID = (int)reader["platform_id"];
+                    pulledGame.ratingId = (int)reader["rating_id"];
+                    pulledGame.coverID = (int)reader["cover_id"];
+
                 }
             }
-            pulledGame.OrderBy(x => x.gameName);
             return pulledGame;
         }
 
-        public IList<GameInfo> PullGameInfo(string gameName)
+        public void PushGameInfo(int gameId, string gameName, string gameDescription, int genreID, int platformID, int franchiseId ,int coverId,int ratingId)
         {
-           
-            IList<GameInfo> gameReturn = new List<GameInfo>();
-            for(int i = 0;i<pulledGame.Count;i++)
-            {
-                bool result = true;
-                if(pulledGame[i].gameName.ToLower().Contains(gameName.ToLower()))
-                {
-                    foreach(GameInfo x in gameReturn)
-                    {
-                        if(x.game_ID == pulledGame[i].game_ID)
-                        {
-                            result = false;
-                            break;
-                        }
-                    }
-                    if(result)
-                    {
-                        gameReturn.Add(pulledGame[i]);
-                    }
-                }
-            }
-            return gameReturn;
-        }
-
-        public GameInfo PushGameInfo(int gameId, string gameName, string gameDescription, int genreID, int platformID,int franchiseId, int gameCover)
-        {
-            GameInfo game = new GameInfo
-            {
-                game_ID = gameId,
-                gameName = gameName,
-                gameDescription = gameDescription,
-                genreID = genreID,
-                platformID = platformID,
-                franchiseID = franchiseId,
-                coverID = gameCover
-
-            };
-            pulledGame.Add(game);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "insert into GameInfo (game_Id,game_Name,game_Description,genre_Id,platform_Id,franchise_Id,cover_Id) values(@one,@two,@three,@four,@five,@six,@seven)";
-                cmd.Parameters.AddWithValue("@one",gameId);
-                cmd.Parameters.AddWithValue("@two", gameName);
-                cmd.Parameters.AddWithValue("@three",gameDescription);
-                cmd.Parameters.AddWithValue("@four",genreID);
-                cmd.Parameters.AddWithValue("@five",platformID);
-                cmd.Parameters.AddWithValue("@six",franchiseId);
-                cmd.Parameters.AddWithValue("@seven",gameCover);
-
+                cmd.CommandText = @"insert into Games (game_id,game_name,rating_id,platform_id,cover_id,genre_id,franchise_id,game_description) values(@gameId,@gameName,@ratingId,@platformId,@coverId,@genreId,@franchiseId,@game_description)";
+                cmd.Parameters.AddWithValue("@gameId", gameId);
+                cmd.Parameters.AddWithValue("@coverId", coverId);
+                cmd.Parameters.AddWithValue("@gameName", gameName);
+                cmd.Parameters.AddWithValue("@game_description", gameDescription);
+                cmd.Parameters.AddWithValue("@genreId", genreID);
+                cmd.Parameters.AddWithValue("@platformId", platformID);
+                cmd.Parameters.AddWithValue("@franchiseId", franchiseId);
+                cmd.Parameters.AddWithValue("@ratingId", ratingId);
                 cmd.ExecuteNonQuery();
             }
-            return game;
+        }
+
+        public List<GameInfo> PullMuliGameInfo(string gameName)
+        {
+            List<GameInfo> multiPulledGames = new List<GameInfo>();
+            GameInfo pulledGame = new GameInfo();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select * from Games
+                where game_name Like @gameName
+                order by game_name";
+                cmd.Parameters.AddWithValue("@gameName", gameName +"%");
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    pulledGame.coverID = (int)reader["cover_id"];
+                    pulledGame.franchiseID = (int)reader["franchise_id"];
+                    pulledGame.gameDescription = (string)reader["game_description"];
+                    pulledGame.gameName = (string)reader["game_name"];
+                    pulledGame.game_ID = (int)reader["game_id"];
+                    pulledGame.genreID = (int)reader["genre_id"];
+                    pulledGame.platformID = (int)reader["platform_id"];
+                    pulledGame.ratingId = (int)reader["rating_id"];
+                    multiPulledGames.Add(pulledGame);
+
+                }
+            }
+            return multiPulledGames;
         }
     }
 }

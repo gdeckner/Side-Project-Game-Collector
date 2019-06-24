@@ -15,7 +15,7 @@ namespace Game_Collector.DAL.Interfaces
         //Returns all games associated with userName
         IList<UserGameInfo> PullUserGameInfo(int userId);
 
-        //Adds a game associated with userName and returns success
+        //Adds a game associated with userName
         void PushUserGameInfo(int userId,int gameId);
 
         //Modifies the game associated with username with if it is owned or on the wishlist

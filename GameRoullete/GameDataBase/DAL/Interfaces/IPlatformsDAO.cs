@@ -15,11 +15,9 @@ namespace Game_Collector.DAL.Interfaces
         //Pulls Specific platform Name by the ID
         Platforms PullSpecificPlatform(int platformID);
 
-        //Returns entire Platform ID and Name table
-        IList<Platforms> PullAllPlatforms();
-
-        //Adds Platform ID and name to table and returns if it worked
-        Platforms PushPlatform(int platformID,string name);
+     
+        //Adds Platform ID and name to table 
+        void PushPlatform(int platformID,string name);
     }
 }
 

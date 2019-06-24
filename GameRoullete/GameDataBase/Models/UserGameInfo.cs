@@ -12,7 +12,7 @@ namespace Game_Collector.Models
         public int game_Id { get; set; }
         public bool game_isOwned { get; set; }
         public bool game_onWish { get; set; }
-        public decimal game_Progress { get; set; }
-        public string userLogin { get; set; }
+        public double game_Progress { get; set; }
+        public int userId { get; set; }
     }
 }

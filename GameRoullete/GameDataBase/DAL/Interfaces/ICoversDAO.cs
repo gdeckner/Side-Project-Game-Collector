@@ -10,18 +10,15 @@ namespace Game_Collector.DAL.Interfaces
    public interface ICoversDAO
     {
 
-        //Checks if gameID and that values exist valid
-        bool CheckCoverValid(int gameId);
+       
+        bool CheckCoverValid(int coverId);
 
-        //Returns Cover ID and Cover URl based on GameID
-        Covers PullCover(int gameId);
+        
+        Covers PullCover(int coverId);
 
-        //Adds Cover ID and url based on gameID and indicates success
+        
         void PushCover(int coverId,string url);
 
-        IList<Covers> PullAllCovers();
-
        
-
     }
 }

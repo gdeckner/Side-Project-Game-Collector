@@ -15,6 +15,7 @@ namespace Game_Collector.Models
         public int franchiseID { get; set; }
         public int coverID { get; set; }
         public int platformID { get; set; }
+        public int ratingId { get; set; }
     }
 
 }

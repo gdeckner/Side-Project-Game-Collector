@@ -12,59 +12,49 @@ namespace GameDataBase.test.DAL
     [TestClass]
     public class GameRatingTest : DatabaseTest
     {
+        public int rtingID = 0;
         private GameRatingSQLDAO dao;
         [TestInitialize]
         public override void Setup()
         {
             base.Setup();
             dao = new GameRatingSQLDAO(ConnectionString);
-        }
-        [TestMethod]
-        public void CheckGameRatingTest()
-        {
-            GameRating pushedRating = new GameRating
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                game_id = 740,
-                game_Hype = 120,
-                game_popularity = 10.3,
-                game_Total_Rating = 85.7,
-                game_Total_Rating_Count = 328
-            };
-            dao.pulledGameRating.Add(pushedRating);
-            Assert.AreEqual(true, dao.CheckGameRatingID(740));
-            Assert.AreEqual(false,dao.CheckGameRatingID(9545));
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"insert into Ratings (popularity,hype,rating,rating_count) values (100,200,5,7)
+                select scope_identity()";
+                rtingID = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
         }
         [TestMethod]
         public void PullGameRatingTest()
         {
-            GameRating test = dao.PullGameRating(740);
-
-            Assert.AreEqual(740, test.game_id);
-            Assert.AreEqual(10.3, test.game_popularity);
-            Assert.AreEqual(85.7, test.game_Total_Rating);
-            Assert.AreEqual(328, test.game_Total_Rating_Count);
+            GameRating test = new GameRating();
+            test = dao.PullGameRating(rtingID);
+            Assert.AreEqual(100, test.game_popularity);
+            Assert.AreEqual(200, test.game_Hype);
+            Assert.AreEqual(5, test.game_Total_Rating);
+            Assert.AreEqual(7, test.game_Total_Rating_Count);
         }
         [TestMethod]
         public void PushGameRatingTest()
         {
-            GameRating test = dao.PushGameRating(9000, 0, 900, 395, 100);
+            int newRatingId;
+            GameRating test = new GameRating();
+           newRatingId = dao.PushGameRating(9000, 51, 23, 55);
+            test = dao.PullGameRating(newRatingId);
+            Assert.AreEqual(rtingID + 1, test.rating_Id);
+            Assert.AreEqual(51, test.game_popularity);
 
-            Assert.AreEqual(9000, test.game_id);
-            Assert.AreEqual(0, test.game_Hype);
-            Assert.AreEqual(100, test.game_Total_Rating);
-            Assert.AreEqual(395, test.game_Total_Rating_Count);
         }
-        [TestMethod]
-        public void FullGameRatingTest()
-        {
-            dao.PushGameRating(9000, 0, 900, 395, 100);
-            GameRating test = dao.PullGameRating(9000);
 
-            Assert.AreEqual(9000, test.game_id);
-            Assert.AreEqual(395, test.game_Total_Rating_Count);
-            Assert.AreEqual(true, dao.CheckGameRatingID(9000));
-        }
-       
 
     }
+
+
+
 }
+

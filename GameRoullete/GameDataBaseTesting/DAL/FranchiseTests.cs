@@ -18,43 +18,62 @@ namespace GameDataBase.test.DAL
         {
             base.Setup();
             dao = new FranchisesSQLDAO(ConnectionString);
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"insert into Franchises (franchise_id,franchise_name) values(101,'Coder Legacy')";
+                cmd.ExecuteNonQuery();
+            }
         }
         [TestMethod]
         public void CheckFranchiseIDTest()
         {
-            Franchises franchise = new Franchises
+            Assert.AreEqual(true, dao.CheckFranchiseID(101));
+            Assert.AreEqual(false, dao.CheckFranchiseID(123213123));
+        }
+        [TestMethod]
+        public void PushFranchisesTest()
+        {
+            Franchises test = new Franchises();
+            dao.PushFranchise(340, "A series of unfortunate calls");
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                franchise_Id = 137
-            };
-            dao.pulledFranchises.Add(franchise);
-            Assert.AreEqual(true, dao.CheckFranchiseID(137));
-            Assert.AreEqual(false, dao.CheckFranchiseID(123444));
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select * from Franchises where franchise_Id = 340";
+                cmd.ExecuteNonQuery();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    test.franchise_Id = (int)reader["franchise_id"];
+                    test.franchise_Name = (string)reader["franchise_name"];
+                }
+            }
+            Assert.AreEqual(340, test.franchise_Id);
+            Assert.AreEqual("A series of unfortunate calls", test.franchise_Name);
+
         }
         [TestMethod]
-        public void InsertFranchisesTest()
+        public void PullFranchisesTest()
         {
-            Franchises test = dao.InsertFranchises(349, "Coder Wars");
-            Assert.AreEqual(349, test.franchise_Id);
-            Assert.AreEqual("Coder Wars", test.franchise_Name);
-   
-        }
-        [TestMethod]
-        public void PullAllFranchisesTest()
-        {
-            IList<Franchises> test = dao.PullFranchise();
-            Assert.AreEqual(2, test.Count);
+            Franchises test = new Franchises();
+            test = dao.PullSpecificFranchise(101);
+            Assert.AreEqual(101, test.franchise_Id);
+            Assert.AreEqual("Coder Legacy", test.franchise_Name);
         }
       
         [TestMethod]
         public void FullFranchiseTest()
         {
-            dao.InsertFranchises(349, "Code Wars");
-            IList<Franchises> test = dao.PullFranchise();
+            dao.PushFranchise(420, "CyberRocker");
+            Franchises test = new Franchises();
+            test = dao.PullSpecificFranchise(420);
+            Assert.AreEqual(true, dao.CheckFranchiseID(420));
+            Assert.AreEqual(420, test.franchise_Id);
+            Assert.AreEqual("CyberRocker", test.franchise_Name);
 
-            Assert.AreEqual(4, test.Count);
-            Assert.AreEqual("Code Wars", test[0].franchise_Name);
-            Assert.AreEqual(137, test[1].franchise_Id);
-            Assert.AreEqual(true, dao.CheckFranchiseID(349));
+
         }
 
     }

@@ -11,7 +11,7 @@ namespace Game_Collector.DAL
 {
     public class CoversSQLDAO : ICoversDAO 
     {
-        public IList<Covers> pulledCovers = new List<Covers>();
+        
         private string connectionString;
         
 
@@ -19,72 +19,58 @@ namespace Game_Collector.DAL
         {
             connectionString = dbConnectionString;
         }
+
         public bool CheckCoverValid(int coverId)
         {
-            bool result = false;
-            foreach(Covers x in pulledCovers)
-            {
-                if (x.cover_ID == coverId)
-                {
-                    result = true;
-                    break;
-                }
-            }
-                
-            return result;
-        }
+            bool isValidCover = false;
 
-        public void PushCover(int coverId, string url)
-        {
-            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "insert into Covers (cover_Id,cover_Url) values(@coverID,@coverUrl)";
-                cmd.Parameters.AddWithValue("@coverID", coverId);
-                cmd.Parameters.AddWithValue("@coverUrl", url);
-
-                cmd.ExecuteNonQuery();
+                cmd.CommandText= @"select cover_url,cover_id from covers
+                 where cover_id = @coverId";
+                cmd.Parameters.AddWithValue("@coverId", coverId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.Read())
+                {
+                    isValidCover = true;
+                }
             }
-
-
-                
+            return isValidCover;
         }
 
         public Covers PullCover(int coverId)
         {
-            Covers cover = new Covers();
-            foreach(Covers x in pulledCovers)
+            Covers pulledCover = new Covers();
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                if(x.cover_ID == coverId)
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select cover_url,cover_id from covers
+                where cover_id = @coverId";
+                cmd.Parameters.AddWithValue("@coverId", coverId);
+                SqlDataReader reader = cmd.ExecuteReader();
+               while(reader.Read())
                 {
-                    cover.cover_ID = coverId;
-                    cover.cover_Url = x.cover_Url;
-
+                    pulledCover.cover_ID = (int)reader["cover_id"];
+                    pulledCover.cover_Url = (string)reader["cover_url"];
                 }
+                
             }
-
-            return cover;
-            
+            return pulledCover;
         }
 
-        public IList<Covers> PullAllCovers()
+        public void PushCover(int coverId, string url)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "Select cover_Url from Covers where cover_Id = @coverId";
+                cmd.CommandText = @"insert into covers (cover_id,cover_url) values(@coverId,@coverurl)";
                 cmd.Parameters.AddWithValue("@coverId", coverId);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    cover.cover_ID = coverId;
-                    cover.cover_Url = (string)reader["cover_Url"];
-                    pulledCovers.Add(cover);
-                }
+                cmd.Parameters.AddWithValue("@coverurl", url);
+                cmd.ExecuteNonQuery();
             }
         }
     }
