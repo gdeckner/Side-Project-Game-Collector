@@ -18,33 +18,37 @@ namespace GameDataBase.test.DAL
         {
             base.Setup();
             dao = new PlatformsSQLDAO(ConnectionString);
-        }
-        [TestMethod]
-        public void CheckPlatformIDTest()
-        {
-            Platforms test = new Platforms
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                platform_Id = 6,
-                platform_Name = "test"
-            };
-            
-            Assert.AreEqual(true, dao.CheckPlatformID(6));
-            Assert.AreEqual(false, dao.CheckPlatformID(04324234));
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"insert into Platforms (platform_id,platform_name) values(23,'CODE DS')";
+                cmd.ExecuteNonQuery();
+            }
         }
+        
         [TestMethod]
         public void CheckPlatformExists()
         {
-            
+            Assert.AreEqual(true, dao.CheckPlatformID(23));
+            Assert.AreEqual(false, dao.CheckPlatformID(99));
         }
         [TestMethod]
         public void PullSpecificPlatformTest()
         {
-
+            Platforms test = new Platforms();
+            test = dao.PullSpecificPlatform(23);
+            Assert.AreEqual(23, test.platform_Id);
+            Assert.AreEqual("CODE DS", test.platform_Name);
         }
         [TestMethod]
         public void PushPlatformTest()
         {
-
+            dao.PushPlatform(42, "Lifebox 2");
+            Platforms test = new Platforms();
+            test = dao.PullSpecificPlatform(42);
+            Assert.AreEqual(42, test.platform_Id);
+            Assert.AreEqual("Lifebox 2", test.platform_Name);
         }
 
 

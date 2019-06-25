@@ -19,17 +19,53 @@ namespace Game_Collector.DAL
 
         public bool CheckPlatformID(int platformID)
         {
-            throw new NotImplementedException();
+            bool isValidPlatform = false;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select * from platforms where platform_id = @platId";
+                cmd.Parameters.AddWithValue("@platId", platformID);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    isValidPlatform = true;
+                }
+            }
+            return isValidPlatform;
         }
 
         public Platforms PullSpecificPlatform(int platformID)
         {
-            throw new NotImplementedException();
+            Platforms pulledPlatform = new Platforms();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select * from platforms where platform_id = @platId";
+                cmd.Parameters.AddWithValue("@platId", platformID);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    pulledPlatform.platform_Id = (int)reader["platform_id"];
+                    pulledPlatform.platform_Name = (string)reader["platform_name"];
+                }
+            }
+            return pulledPlatform;
         }
 
         public void PushPlatform(int platformID, string name)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"insert into Platforms (platform_id,platform_name)
+                values(@platId,@platName)";
+                cmd.Parameters.AddWithValue("@platId", platformID);
+                cmd.Parameters.AddWithValue("@platName", name);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

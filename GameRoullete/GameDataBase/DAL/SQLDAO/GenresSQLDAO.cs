@@ -40,12 +40,36 @@ namespace Game_Collector.DAL
 
         public Genres PullSpecificGenre(int genreID)
         {
-            throw new NotImplementedException();
+            Genres pulledGenre = new Genres();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select * from Genres
+                where genre_id = @genreId";
+                cmd.Parameters.AddWithValue("@genreId", genreID);
+                SqlDataReader reader = cmd.ExecuteReader();
+                 while(reader.Read())
+                {
+                    pulledGenre.genre_iD = (int)reader["genre_id"];
+                    pulledGenre.genre_Name = (string)reader["genre_name"];
+                }
+            }
+            return pulledGenre;
         }
 
         public void PushGenre(int genreId, string genreName)
         {
-            throw new NotImplementedException();
+            using(SqlConnection connection = new SqlConnection(connectionString))
+                {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"insert into Genres (genre_id,genre_name)
+                values(@genreId,@genreName)";
+                cmd.Parameters.AddWithValue("@genreId", genreId);
+                cmd.Parameters.AddWithValue("@genreName", genreName);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

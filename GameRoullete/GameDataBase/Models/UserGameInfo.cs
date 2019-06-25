@@ -13,6 +13,6 @@ namespace Game_Collector.Models
         public bool game_isOwned { get; set; }
         public bool game_onWish { get; set; }
         public double game_Progress { get; set; }
-        public int userId { get; set; }
+        public string user_name { get; set; }
     }
 }

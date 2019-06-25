@@ -1389,11 +1389,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\IGDBPuller\\IGDBPuller.csproj",
+      "projectUniqueName": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\IGDBPuller\\IGDBPuller.csproj",
       "projectName": "IGDBPuller",
-      "projectPath": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\IGDBPuller\\IGDBPuller.csproj",
+      "projectPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\IGDBPuller\\IGDBPuller.csproj",
       "packagesPath": "C:\\Users\\georgd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\IGDBPuller\\obj\\",
+      "outputPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\IGDBPuller\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

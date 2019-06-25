@@ -6292,11 +6292,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameDataBaseTesting\\GameDataBase.test.csproj",
+      "projectUniqueName": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBaseTesting\\GameDataBase.test.csproj",
       "projectName": "GameDataBase.test",
-      "projectPath": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameDataBaseTesting\\GameDataBase.test.csproj",
+      "projectPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBaseTesting\\GameDataBase.test.csproj",
       "packagesPath": "C:\\Users\\georgd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameDataBaseTesting\\obj\\",
+      "outputPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBaseTesting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6315,11 +6315,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
-              "projectPath": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj"
+            "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
+              "projectPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBase\\GameDataBase.csproj"
             },
-            "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj": {
-              "projectPath": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj"
+            "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameRoullete\\Game Collector.csproj": {
+              "projectPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameRoullete\\Game Collector.csproj"
             }
           }
         }

@@ -1480,11 +1480,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
+      "projectUniqueName": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
       "projectName": "GameDataBase",
-      "projectPath": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
+      "projectPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
       "packagesPath": "C:\\Users\\georgd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\georgd\\source\\repos\\Personal Side Projects\\personal-side-projects\\GameRoullete\\GameDataBase\\obj\\",
+      "outputPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBase\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
