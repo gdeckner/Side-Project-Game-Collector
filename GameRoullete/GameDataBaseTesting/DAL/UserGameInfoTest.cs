@@ -61,16 +61,20 @@ namespace GameDataBase.test.DAL
         [TestMethod]
         public void PushUserGameInfoTest()
         {
-            dao.PushUserGameInfo("testUser",300);
+            dao.PushUserGameInfo("testUser",300,0,true,false);
             UserGameInfo test = new UserGameInfo();
             test = dao.PullSingleUserGameInfo("testUser", 300);
-            Assert.AreEqual(300, test.entry_Id);
-            Assert.AreEqual(null, test.game_Progress);
+            Assert.AreEqual(300, test.game_Id);
+            Assert.AreEqual(0, test.game_Progress);
         }
         [TestMethod]
         public void UpdateOwnedorWishListTest()
         {
-           
+            dao.UpdateUserGame(200, false, true, "testUser", 50);
+            UserGameInfo test = new UserGameInfo();
+            test = dao.PullSingleUserGameInfo("testUser", 200);
+            Assert.AreEqual(true, test.game_onWish);
+            Assert.AreEqual("testUser", test.user_name);
             
         }
         [TestMethod]

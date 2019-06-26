@@ -18,15 +18,25 @@ namespace GameDataBase.test.DAL
         {
             base.Setup();
             dao = new UserLoginSqlDao(ConnectionString);
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"insert into UserInfo (userName,password,salt) values ('testuser','password','salt')";
+                cmd.ExecuteNonQuery();
+            }
         }
         [TestMethod]
         public void CheckifNameValidTest()
         {
-           
+            Assert.AreEqual(true, dao.CheckIfValid("testUser"));
+            Assert.AreEqual(true, dao.CheckIfValid("testuser"));
+            Assert.AreEqual(false, dao.CheckIfValid("ooga"));
         }
         [TestMethod]
         public void CreateLoginTest()
         {
+            dao.CreateLogin()
         }
         [TestMethod]
         public void CheckLoginTest()

@@ -5,3 +5,10 @@ C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameR
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\bin\Debug\Game_Collector.pdb
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game_Collector.exe
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\GameRoullete\obj\Debug\Game_Collector.pdb
+C:\Game Collector_Roullette Side Project\GameRoullete\GameRoullete\bin\Debug\Game_Collector.exe.config
+C:\Game Collector_Roullette Side Project\GameRoullete\GameRoullete\bin\Debug\Game_Collector.exe
+C:\Game Collector_Roullette Side Project\GameRoullete\GameRoullete\bin\Debug\Game_Collector.pdb
+C:\Game Collector_Roullette Side Project\GameRoullete\GameRoullete\obj\Debug\Game Collector.csprojAssemblyReference.cache
+C:\Game Collector_Roullette Side Project\GameRoullete\GameRoullete\obj\Debug\Game Collector.csproj.CoreCompileInputs.cache
+C:\Game Collector_Roullette Side Project\GameRoullete\GameRoullete\obj\Debug\Game_Collector.exe
+C:\Game Collector_Roullette Side Project\GameRoullete\GameRoullete\obj\Debug\Game_Collector.pdb

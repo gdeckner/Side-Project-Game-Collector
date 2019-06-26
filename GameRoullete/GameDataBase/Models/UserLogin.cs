@@ -11,6 +11,7 @@ namespace Game_Collector.Models
     {
         public int userId { get; set; } //Primary Key
         public string userName { get; set; } //Current System User
+        
        
         
     }

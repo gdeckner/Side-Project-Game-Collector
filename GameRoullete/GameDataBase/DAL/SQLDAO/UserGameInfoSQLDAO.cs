@@ -84,30 +84,38 @@ namespace Game_Collector.DAL
             return null;
         }
 
-        public void PushUserGameInfo(string userId, int gameId)
+        public void PushUserGameInfo(string userId, int gameId, int progress, bool owned, bool wish)
         {
+            int convertToBit;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = connection.CreateCommand();
                 connection.Open();
-                cmd.CommandText = @"insert into UserGameInfo (game_Id,userName) values (@game_Id,@userId)";
+                cmd.CommandText = @"insert into UserGameInfo (game_Id,userName,progress,wishlist,owned) 
+                values (@game_Id,@userId,@progress,@wishlist,@owned)";
                 cmd.Parameters.AddWithValue("@userId", userId);
                 cmd.Parameters.AddWithValue("@game_Id", gameId);
+                convertToBit = (owned) ? 1 : 0;
+                cmd.Parameters.AddWithValue("@owned", convertToBit);
+                convertToBit = (wish) ? 1 : 0;
+                cmd.Parameters.AddWithValue("@wishlist", convertToBit);
+                cmd.Parameters.AddWithValue("@progress", progress);
+
                 cmd.ExecuteNonQuery();
             }
         }
-
-        public void UpdateOwnedOrWishList(int gameId, bool isOwnedValue, bool isTrue, string userId)
+        public void UpdateUserGame(int gameId, bool isOwnedValue, bool wish, string userId, int progress)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = connection.CreateCommand();
                 connection.Open();
-                cmd.CommandText = @"insert into UserGameInfo (game_Id,userName,game_isOwned,game_onWish,game_Progress) values (@game_Id,@userId,@gameOwned,@gameWish)";
+                cmd.CommandText = @"insert into UserGameInfo (game_Id,userName,owned,wishlist,progress) values (@game_Id,@userId,@gameOwned,@gameWish,@progress)";
                 cmd.Parameters.AddWithValue("@userId", userId);
                 cmd.Parameters.AddWithValue("@game_Id", gameId);
                 cmd.Parameters.AddWithValue("@gameOwned", isOwnedValue);
-                cmd.Parameters.AddWithValue("@gameWish", isTrue);
+                cmd.Parameters.AddWithValue("@gameWish", wish);
+                cmd.Parameters.AddWithValue("@progress", progress);
                 cmd.ExecuteNonQuery();
             }
         }

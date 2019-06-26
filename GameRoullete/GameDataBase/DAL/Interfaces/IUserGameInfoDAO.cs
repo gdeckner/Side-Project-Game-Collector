@@ -18,10 +18,10 @@ namespace Game_Collector.DAL.Interfaces
         UserGameInfo PullSingleUserGameInfo(string userId, int gameId);
 
         //Adds a game associated with userName
-        void PushUserGameInfo(string userId,int gameId);
+        void PushUserGameInfo(string userId,int gameId,int progress,bool owned,bool wish);
 
         //Modifies the game associated with username with if it is owned or on the wishlist
-        void UpdateOwnedOrWishList(int gameId, bool isOwnedValue, bool isTrue,string userId);
+        void UpdateUserGame(int gameId, bool isOwnedValue, bool isTrue,string userId,int progress);
 
 
     }
