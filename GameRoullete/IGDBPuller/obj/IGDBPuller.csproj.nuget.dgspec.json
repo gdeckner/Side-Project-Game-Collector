@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\School Code\\personal-side-projects\\GameRoullete\\IGDBPuller\\IGDBPuller.csproj": {}
+  },
+  "projects": {
+    "C:\\School Code\\personal-side-projects\\GameRoullete\\IGDBPuller\\IGDBPuller.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\IGDBPuller\\IGDBPuller.csproj",
+        "projectName": "IGDBPuller",
+        "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\IGDBPuller\\IGDBPuller.csproj",
+        "packagesPath": "C:\\Users\\Dredroth\\.nuget\\packages\\",
+        "outputPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\IGDBPuller\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Dredroth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

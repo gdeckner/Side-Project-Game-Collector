@@ -1,0 +1,114 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBaseTesting\\GameDataBase.test.csproj": {}
+  },
+  "projects": {
+    "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBaseTesting\\GameDataBase.test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBaseTesting\\GameDataBase.test.csproj",
+        "projectName": "GameDataBase.test",
+        "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBaseTesting\\GameDataBase.test.csproj",
+        "packagesPath": "C:\\Users\\Dredroth\\.nuget\\packages\\",
+        "outputPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBaseTesting\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Dredroth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
+                "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj"
+              },
+              "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj": {
+                "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
+        "projectName": "GameDataBase",
+        "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
+        "packagesPath": "C:\\Users\\Dredroth\\.nuget\\packages\\",
+        "outputPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Dredroth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj",
+        "projectName": "Game Collector",
+        "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj"
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    }
+  }
+}
