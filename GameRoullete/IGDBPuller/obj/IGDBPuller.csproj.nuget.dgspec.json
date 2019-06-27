@@ -40,6 +40,18 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
+          "dependencies": {
+            "IGDB": {
+              "target": "Package",
+              "version": "[0.3.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
           "imports": [
             "net461"
           ],

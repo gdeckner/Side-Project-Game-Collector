@@ -68,7 +68,7 @@ create table UserGameInfo
 EntryId int identity (1,1) primary key,
 userName varchar(200) foreign key references UserInfo(userName),
 game_id int  foreign key references Games(game_id),
-progress int null,
+progress int default 0 null,
 owned bit default 0,
 wishlist bit default 0
 
@@ -78,3 +78,4 @@ wishlist bit default 0
 
 				
 
+			
