@@ -13,12 +13,12 @@ namespace Game_Collector.DAL
         {
             connectionString = dbConnectionString;
         }
-        public UserLogin ChangeLoginPassword(string username, string oldpassword, string newPassword)
+        public void ChangeLoginPassword(string username, string oldpassword, string newPassword)
         {
             throw new NotImplementedException();
         }
 
-        public bool CheckIfValid(string userName)
+        public bool CheckIfUserNameExists(string userName)
         {
             bool isValid = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -43,12 +43,7 @@ namespace Game_Collector.DAL
             throw new NotImplementedException();
         }
 
-        public bool CheckPasswordValid(string password1, string password2)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UserLogin CreateLogin(string userName, string password)
+        public void CreateLogin(string userName, string password)
         {
             throw new NotImplementedException();
         }

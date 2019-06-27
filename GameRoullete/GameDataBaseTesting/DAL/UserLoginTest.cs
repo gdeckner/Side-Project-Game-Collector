@@ -29,30 +29,39 @@ namespace GameDataBase.test.DAL
         [TestMethod]
         public void CheckifNameValidTest()
         {
-            Assert.AreEqual(true, dao.CheckIfValid("testUser"));
-            Assert.AreEqual(true, dao.CheckIfValid("testuser"));
-            Assert.AreEqual(false, dao.CheckIfValid("ooga"));
+            Assert.AreEqual(true, dao.CheckIfUserNameExists("testUser"));
+            Assert.AreEqual(true, dao.CheckIfUserNameExists("testuser"));
+            Assert.AreEqual(false, dao.CheckIfUserNameExists("ooga"));
         }
         [TestMethod]
         public void CreateLoginTest()
         {
-            dao.CreateLogin()
+            dao.CreateLogin("newUser","password");
+            Assert.AreEqual(true, dao.CheckLogin("newUser", "password"));
+            Assert.AreEqual(false, dao.CheckLogin("newuser", "Password"));
         }
         [TestMethod]
         public void CheckLoginTest()
         {
-          
+            Assert.AreEqual(true, dao.CheckLogin("testUser", "password"));
+            Assert.AreEqual(true, dao.CheckLogin("testuser", "password"));
+            Assert.AreEqual(false, dao.CheckLogin("testuser", "Password"));
+
         }
         [TestMethod]
         public void ChangeLoginPasswordTest()
         {
-
+            dao.ChangeLoginPassword("testuser", "password", "NewPassword");
+            Assert.AreEqual(true, dao.CheckLogin("testuser", "NewPassword"));
+            Assert.AreEqual(false, dao.CheckLogin("testuser", "password"));
         }
         [TestMethod]
-        public void FullLoginTest()
+        public void CheckPasswordChange_Or_CheckPasswordCreation()
         {
-           
-            
+            Assert.AreEqual(true, dao.CheckPasswordValid("Test.Password!", "Test.Password!"));
+            Assert.AreEqual(false, dao.CheckPasswordValid("Test.passwprd!", "Test.Password!"));
+            Assert.AreEqual(false, dao.CheckPasswordValid("TestPassword12!", "testPassword12!"));
+
         }
 
 
