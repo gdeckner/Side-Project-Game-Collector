@@ -4,6 +4,7 @@ using Game_Collector.Security;
 
 namespace GameDataBase.test.Security
 {
+    //Pulled directly from school lexture example
   [TestClass]
    public class PasswordHasherTests
     {
@@ -29,6 +30,7 @@ namespace GameDataBase.test.Security
             public void A_password_longer_than_48_characters_is_hashed()
             {
                 byte[] salt = hasher.GenerateRandomSalt();
+
                 string hashedPassword = hasher.ComputeHash(new string('*', 49), salt);
 
                 Assert.AreEqual(48, hashedPassword.Length);

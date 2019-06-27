@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security;
+ 
 
 namespace Game_Collector.DAL.Interfaces
 {
@@ -20,7 +21,7 @@ namespace Game_Collector.DAL.Interfaces
         void CreateLogin(string userName, string password);
 
         //Change User Password
-        void ChangeLoginPassword(string userName, string oldpassword,string newPassword);
+        void ChangeLoginPassword(string userName,string newPassword);
 
         
         

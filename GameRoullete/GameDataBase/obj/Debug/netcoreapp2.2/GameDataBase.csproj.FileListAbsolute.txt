@@ -16,3 +16,12 @@ C:\Game Collector_Roullette Side Project\GameRoullete\GameDataBase\obj\Debug\net
 C:\Game Collector_Roullette Side Project\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.AssemblyInfo.cs
 C:\Game Collector_Roullette Side Project\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.dll
 C:\Game Collector_Roullette Side Project\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.pdb
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\bin\Debug\netcoreapp2.2\GameDataBase.deps.json
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\bin\Debug\netcoreapp2.2\GameDataBase.dll
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\bin\Debug\netcoreapp2.2\GameDataBase.pdb
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.csprojAssemblyReference.cache
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.csproj.CoreCompileInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.AssemblyInfoInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.AssemblyInfo.cs
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.dll
+C:\School Code\personal-side-projects\GameRoullete\GameDataBase\obj\Debug\netcoreapp2.2\GameDataBase.pdb

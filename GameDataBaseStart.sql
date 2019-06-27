@@ -60,7 +60,7 @@ franchise_id int foreign key references Franchises(franchise_id)
 Create table UserInfo
 (
 userName varchar(200) primary key,
-password varchar(200) not null,
+password varchar(200)COLLATE Latin1_General_CI_AS not null,
 salt varchar (200) not null
 )
 create table UserGameInfo

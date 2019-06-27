@@ -60,3 +60,23 @@ C:\Game Collector_Roullette Side Project\GameRoullete\GameDataBaseTesting\obj\De
 C:\Game Collector_Roullette Side Project\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.csproj.CopyComplete
 C:\Game Collector_Roullette Side Project\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.dll
 C:\Game Collector_Roullette Side Project\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.pdb
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.csprojAssemblyReference.cache
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.csproj.CoreCompileInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.AssemblyInfoInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.AssemblyInfo.cs
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.dll
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.pdb
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.test.deps.json
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.test.runtimeconfig.json
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.test.runtimeconfig.dev.json
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.test.dll
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.test.pdb
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.dll
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Game_Collector.exe
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.pdb
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Game_Collector.pdb
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Game_Collector.exe.config
+C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.csproj.CopyComplete
