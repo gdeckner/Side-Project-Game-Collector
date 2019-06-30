@@ -32,9 +32,6 @@
             "projectReferences": {
               "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
                 "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj"
-              },
-              "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj": {
-                "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj"
               }
             }
           }
@@ -48,6 +45,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "IGDB": {
+              "target": "Package",
+              "version": "[0.3.3, )"
+            },
             "MSTest.TestAdapter": {
               "target": "Package",
               "version": "[1.3.2, )"
@@ -132,6 +133,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "IGDB": {
+              "target": "Package",
+              "version": "[0.3.3, )"
+            },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
               "version": "[2.2.4, )"
@@ -161,17 +166,6 @@
           "assetTargetFallback": true,
           "warn": true
         }
-      }
-    },
-    "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj",
-        "projectName": "Game Collector",
-        "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameRoullete\\Game Collector.csproj"
-      },
-      "frameworks": {
-        "net461": {}
       }
     }
   }

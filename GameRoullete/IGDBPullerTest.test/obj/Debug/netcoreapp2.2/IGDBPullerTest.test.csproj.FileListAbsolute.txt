@@ -1,0 +1,14 @@
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\bin\Debug\netcoreapp2.2\IGDBPullerTest.test.deps.json
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\bin\Debug\netcoreapp2.2\IGDBPullerTest.test.runtimeconfig.json
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\bin\Debug\netcoreapp2.2\IGDBPullerTest.test.runtimeconfig.dev.json
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\bin\Debug\netcoreapp2.2\IGDBPullerTest.test.dll
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\bin\Debug\netcoreapp2.2\IGDBPullerTest.test.pdb
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\obj\Debug\netcoreapp2.2\IGDBPullerTest.test.csprojAssemblyReference.cache
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\obj\Debug\netcoreapp2.2\IGDBPullerTest.test.csproj.CoreCompileInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\obj\Debug\netcoreapp2.2\IGDBPullerTest.test.AssemblyInfoInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\obj\Debug\netcoreapp2.2\IGDBPullerTest.test.AssemblyInfo.cs
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\obj\Debug\netcoreapp2.2\IGDBPullerTest.test.dll
+C:\School Code\personal-side-projects\GameRoullete\IGDBPullerTest.test\obj\Debug\netcoreapp2.2\IGDBPullerTest.test.pdb

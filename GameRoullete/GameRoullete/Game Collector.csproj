@@ -54,6 +54,7 @@
       <HintPath>..\packages\IGDB.0.3.3\lib\netstandard2.0\IGDB.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

@@ -1,17 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game Collector", "GameRoullete\Game Collector.csproj", "{663AC5EE-7794-42A0-B981-F13AA01AB2ED}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameDataBase", "GameDataBase\GameDataBase.csproj", "{464B1EDE-176E-4A76-A3A6-30E519273F84}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameDataBase.test", "GameDataBaseTesting\GameDataBase.test.csproj", "{340DC006-F157-4582-9905-B22DEA76F6B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGDBPuller", "IGDBPuller\IGDBPuller.csproj", "{2BA88C0C-9847-45BE-B10F-0037B3D0135C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IGDBPuller", "IGDBPuller\IGDBPuller.csproj", "{2BA88C0C-9847-45BE-B10F-0037B3D0135C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGDBPullerTest.test", "IGDBPullerTest.test\IGDBPullerTest.test.csproj", "{646CEADB-3BFB-449E-B06F-99FDC7728CBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IGDBPullerTest.test", "IGDBPullerTest.test\IGDBPullerTest.test.csproj", "{646CEADB-3BFB-449E-B06F-99FDC7728CBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCollectorWeb", "GameCollectorWeb\GameCollectorWeb.csproj", "{FFB25568-5F99-4492-8CD7-43BFBA841A0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatorIntegrationTesting", "MediatorIntegrationTesting\MediatorIntegrationTesting.csproj", "{F950C9C6-792F-4F35-9E90-E9735F2C773F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{663AC5EE-7794-42A0-B981-F13AA01AB2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{663AC5EE-7794-42A0-B981-F13AA01AB2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{663AC5EE-7794-42A0-B981-F13AA01AB2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{663AC5EE-7794-42A0-B981-F13AA01AB2ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{464B1EDE-176E-4A76-A3A6-30E519273F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{464B1EDE-176E-4A76-A3A6-30E519273F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{464B1EDE-176E-4A76-A3A6-30E519273F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +37,14 @@ Global
 		{646CEADB-3BFB-449E-B06F-99FDC7728CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{646CEADB-3BFB-449E-B06F-99FDC7728CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{646CEADB-3BFB-449E-B06F-99FDC7728CBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFB25568-5F99-4492-8CD7-43BFBA841A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB25568-5F99-4492-8CD7-43BFBA841A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB25568-5F99-4492-8CD7-43BFBA841A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB25568-5F99-4492-8CD7-43BFBA841A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F950C9C6-792F-4F35-9E90-E9735F2C773F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F950C9C6-792F-4F35-9E90-E9735F2C773F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F950C9C6-792F-4F35-9E90-E9735F2C773F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F950C9C6-792F-4F35-9E90-E9735F2C773F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,6 +19,7 @@ namespace Game_Collector.DAL
 
         public bool CheckPlatformID(int platformID)
         {
+            //Checks if platform exists in SQL DB
             bool isValidPlatform = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -35,8 +36,32 @@ namespace Game_Collector.DAL
             return isValidPlatform;
         }
 
+        public IList<Platforms> PullAllPlatforms()
+        {
+            //Pulls all platforms from SQL DB
+            IList<Platforms> pulledPlatforms = new List<Platforms>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select * from Platforms";
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Platforms newPlatform = new Platforms
+                    {
+                        platform_Id= (int)reader["platform_id"],
+                        platform_Name = (string)reader["platform_name"]
+                    };
+                    pulledPlatforms.Add(newPlatform);
+                }
+            }
+            return pulledPlatforms;
+        }
+
         public Platforms PullSpecificPlatform(int platformID)
         {
+            //Pulls specific platform name based on platform ID from SQL DB
             Platforms pulledPlatform = new Platforms();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -56,6 +81,7 @@ namespace Game_Collector.DAL
 
         public void PushPlatform(int platformID, string name)
         {
+            //pushs new platform id and name into SQL DB
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

@@ -19,6 +19,7 @@ namespace Game_Collector.DAL
 
         public int CheckGameInfo(string gameName)
         {
+            //Verifies if game exists in DB
             int result = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -38,6 +39,7 @@ namespace Game_Collector.DAL
 
         public GameInfo PullGameInfo(string gameName)
         {
+            //Pulls a single closest match game from SQL DB
             GameInfo pulledGame = new GameInfo();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -55,8 +57,8 @@ namespace Game_Collector.DAL
                     pulledGame.gameDescription = (string)reader["game_description"];
                     pulledGame.gameName = (string)reader["game_name"];
                     pulledGame.game_ID = (int)reader["game_id"];
-                    pulledGame.genreID = (int)reader["genre_id"];
-                    pulledGame.platformID = (int)reader["platform_id"];
+                    pulledGame.genreID = reader["genre_id_array"].ToString().Split(',').Select(x=>Convert.ToInt32(x)).ToArray();
+                    pulledGame.platformID = reader["platform_id_array"].ToString().Split(',').Select(x => Convert.ToInt32(x)).ToArray();
                     pulledGame.ratingId = (int)reader["rating_id"];
                     pulledGame.coverID = (int)reader["cover_id"];
 
@@ -65,27 +67,33 @@ namespace Game_Collector.DAL
             return pulledGame;
         }
 
-        public void PushGameInfo(int gameId, string gameName, string gameDescription, int genreID, int platformID, int franchiseId ,int coverId,int ratingId)
+        public void PushGameInfo(int gameId, string gameName, string gameDescription, int [] genreID, int [] platformID, int franchiseId ,int coverId,int ratingId)
         {
+            //Adds a new game to SQL DB
+            string genreIdArray = string.Join(',',genreID);
+            string platformIdArray = string.Join(',', platformID);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = @"insert into Games (game_id,game_name,rating_id,platform_id,cover_id,genre_id,franchise_id,game_description) values(@gameId,@gameName,@ratingId,@platformId,@coverId,@genreId,@franchiseId,@game_description)";
+                cmd.CommandText = @"insert into Games (game_id,game_name,rating_id,platform_id_array,cover_id,genre_id_array,franchise_id,game_description) values(@gameId,@gameName,@ratingId,@platformId,@coverId,@genreId,@franchiseId,@game_description)";
                 cmd.Parameters.AddWithValue("@gameId", gameId);
                 cmd.Parameters.AddWithValue("@coverId", coverId);
                 cmd.Parameters.AddWithValue("@gameName", gameName);
                 cmd.Parameters.AddWithValue("@game_description", gameDescription);
-                cmd.Parameters.AddWithValue("@genreId", genreID);
-                cmd.Parameters.AddWithValue("@platformId", platformID);
+                cmd.Parameters.AddWithValue("@genreId", genreIdArray);
+                cmd.Parameters.AddWithValue("@platformId", platformIdArray);
                 cmd.Parameters.AddWithValue("@franchiseId", franchiseId);
                 cmd.Parameters.AddWithValue("@ratingId", ratingId);
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public List<GameInfo> PullMuliGameInfo(string gameName)
+     
+
+        public IList<GameInfo> PullMuliGameInfo(string gameName)
         {
+            //Pulls all games that match name from SQL DB
             List<GameInfo> multiPulledGames = new List<GameInfo>();
             GameInfo pulledGame = new GameInfo();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -104,8 +112,8 @@ namespace Game_Collector.DAL
                     pulledGame.gameDescription = (string)reader["game_description"];
                     pulledGame.gameName = (string)reader["game_name"];
                     pulledGame.game_ID = (int)reader["game_id"];
-                    pulledGame.genreID = (int)reader["genre_id"];
-                    pulledGame.platformID = (int)reader["platform_id"];
+                    pulledGame.genreID = reader["genre_id_array"].ToString().Split(',').Select(x => Convert.ToInt32(x)).ToArray();
+                    pulledGame.platformID = reader["platform_id_array"].ToString().Split(',').Select(x => Convert.ToInt32(x)).ToArray();
                     pulledGame.ratingId = (int)reader["rating_id"];
                     multiPulledGames.Add(pulledGame);
 

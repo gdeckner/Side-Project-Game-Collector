@@ -4,3 +4,12 @@ C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameR
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.csproj.CoreCompileInputs.cache
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.AssemblyInfoInputs.cache
 C:\Users\georgd\source\repos\Personal Side Projects\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.AssemblyInfo.cs
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\bin\Debug\netcoreapp2.2\IGDBPuller.deps.json
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\bin\Debug\netcoreapp2.2\IGDBPuller.dll
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\bin\Debug\netcoreapp2.2\IGDBPuller.pdb
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.csprojAssemblyReference.cache
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.csproj.CoreCompileInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.AssemblyInfoInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.AssemblyInfo.cs
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.dll
+C:\School Code\personal-side-projects\GameRoullete\IGDBPuller\obj\Debug\netcoreapp2.2\IGDBPuller.pdb

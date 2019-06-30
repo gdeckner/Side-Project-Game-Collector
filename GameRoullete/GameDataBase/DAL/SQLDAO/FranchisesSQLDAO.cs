@@ -20,6 +20,7 @@ namespace Game_Collector.DAL
 
         public void PushFranchise(int franchiseID, string name)
         {
+            //Pushes the parameters into the SQL table Franchises
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -33,6 +34,7 @@ namespace Game_Collector.DAL
 
         public bool CheckFranchiseID(int franchiseID)
         {
+            //Verifies if franchise exists in SQL database
             bool isValdidFranchise = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -52,6 +54,7 @@ namespace Game_Collector.DAL
 
         public Franchises PullSpecificFranchise(int franchiseID)
         {
+            //Pulls specific Franchise based on the id from the DB
             Franchises pulledFranchise = new Franchises();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -1,0 +1,17 @@
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\MediatorIntegrationTesting.deps.json
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\MediatorIntegrationTesting.runtimeconfig.json
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\MediatorIntegrationTesting.runtimeconfig.dev.json
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\MediatorIntegrationTesting.dll
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\MediatorIntegrationTesting.pdb
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\GameDataBase.dll
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\bin\Debug\netcoreapp2.2\GameDataBase.pdb
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\obj\Debug\netcoreapp2.2\MediatorIntegrationTesting.csprojAssemblyReference.cache
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\obj\Debug\netcoreapp2.2\MediatorIntegrationTesting.csproj.CoreCompileInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\obj\Debug\netcoreapp2.2\MediatorIntegrationTesting.AssemblyInfoInputs.cache
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\obj\Debug\netcoreapp2.2\MediatorIntegrationTesting.AssemblyInfo.cs
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\obj\Debug\netcoreapp2.2\MediatorIntegrationTesting.csproj.CopyComplete
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\obj\Debug\netcoreapp2.2\MediatorIntegrationTesting.dll
+C:\School Code\personal-side-projects\GameRoullete\MediatorIntegrationTesting\obj\Debug\netcoreapp2.2\MediatorIntegrationTesting.pdb

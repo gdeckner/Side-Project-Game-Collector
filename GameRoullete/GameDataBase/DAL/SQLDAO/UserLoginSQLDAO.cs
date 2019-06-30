@@ -18,6 +18,7 @@ namespace Game_Collector.DAL
         }
         public void ChangeLoginPassword(string username, string newPassword)
         {
+            //Changes the password for the user
             byte[] salt = passHasher.GenerateRandomSalt();
             string hashedPassword = passHasher.ComputeHash(newPassword, salt);
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -37,7 +38,7 @@ namespace Game_Collector.DAL
 
         public bool CheckIfUserNameExists(string userName)
         {
-
+            //Verifies if user name already exists, not case sensitive
             bool isValid = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -58,6 +59,7 @@ namespace Game_Collector.DAL
 
         public bool CheckLogin(string userName, string password)
         {
+            //Verifies that login info is correct
             bool loginPassed = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -80,6 +82,7 @@ namespace Game_Collector.DAL
 
         public void CreateLogin(string userName, string password)
         {
+            //Creates a new login
             byte[] salt = passHasher.GenerateRandomSalt();
             string hashedPassword = passHasher.ComputeHash(password, salt);
             using (SqlConnection connection = new SqlConnection(connectionString))

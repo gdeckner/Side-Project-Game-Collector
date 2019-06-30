@@ -48,12 +48,12 @@ rating_count int null
 Create table Games
 (
 game_id int primary key,
-game_description varchar(1000) not null,
+game_description varchar(8000) not null,
 game_name varchar(100) not null,
 rating_id int foreign key references Ratings(rating_id),
-platform_id int foreign key references Platforms(platform_id),
+platform_id_array varchar(100),
 cover_id int foreign key references Covers(cover_id),
-genre_id int foreign key references Genres(genre_id),
+genre_id_array varchar(100),
 franchise_id int foreign key references Franchises(franchise_id)
 )
 
@@ -75,7 +75,5 @@ wishlist bit default 0
 )
 
 
-
-				
 
 			

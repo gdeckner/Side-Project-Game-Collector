@@ -22,6 +22,7 @@ namespace Game_Collector.DAL
 
         public bool CheckCoverValid(int coverId)
         {
+            //Creates SQL connection and connects to our DB, and returns if it exists or not
             bool isValidCover = false;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -42,6 +43,7 @@ namespace Game_Collector.DAL
 
         public Covers PullCover(int coverId)
         {
+            //Creates SQL connection and connects to our DB, and returns the cover url based on the cover id
             Covers pulledCover = new Covers();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -63,6 +65,7 @@ namespace Game_Collector.DAL
 
         public void PushCover(int coverId, string url)
         {
+            //Creates SQL connection and updates our cover table based on the values being pushed
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

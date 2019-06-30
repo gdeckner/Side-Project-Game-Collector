@@ -75,8 +75,5 @@ C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug
 C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.test.dll
 C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.test.pdb
 C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.dll
-C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Game_Collector.exe
 C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\GameDataBase.pdb
-C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Game_Collector.pdb
-C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\bin\Debug\netcoreapp2.2\Game_Collector.exe.config
 C:\School Code\personal-side-projects\GameRoullete\GameDataBaseTesting\obj\Debug\netcoreapp2.2\GameDataBase.test.csproj.CopyComplete

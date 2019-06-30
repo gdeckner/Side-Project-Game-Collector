@@ -18,6 +18,7 @@ namespace Game_Collector.DAL
         }
         public bool CheckIfValid(string userId)
         {
+            //Checks if username exists
             bool result = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -37,6 +38,7 @@ namespace Game_Collector.DAL
 
         public UserGameInfo PullSingleUserGameInfo(string userId, int gameId)
         {
+            //Pulls a single game associated with user and the specific game ID
             UserGameInfo pulledUserGame = new UserGameInfo();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -61,6 +63,7 @@ namespace Game_Collector.DAL
 
         public IList<UserGameInfo> PullUserGameInfo(string userId)
         {
+            //Pulls all games associated with user
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = connection.CreateCommand();
@@ -86,6 +89,7 @@ namespace Game_Collector.DAL
 
         public void PushUserGameInfo(string userId, int gameId, int progress, bool owned, bool wish)
         {
+            //Adds a new game to be associated with user
             int convertToBit;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -106,6 +110,7 @@ namespace Game_Collector.DAL
         }
         public void UpdateUserGame(int gameId, bool isOwnedValue, bool wish, string userId, int progress)
         {
+            //Modifies game associated with user
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = connection.CreateCommand();

@@ -21,7 +21,7 @@ namespace Game_Collector.DAL
         public bool CheckGenreID(int genreID)
         {
             bool isValidGenre = false;
-
+            //Checks if genre exists in SQL DB
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -38,8 +38,32 @@ namespace Game_Collector.DAL
             return isValidGenre;
         }
 
+        public IList<Genres> PullAllGenres()
+        {
+            //Pulls all the genres stored in SQL DB
+            IList<Genres> pulledGenres = new List<Genres>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select * from Genres";
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Genres newGenre = new Genres
+                    {
+                        genre_iD = (int)reader["genre_id"],
+                        genre_Name = (string)reader["genre_name"]
+                    };
+                    pulledGenres.Add(newGenre);
+                }
+            }
+            return pulledGenres;
+        }
+
         public Genres PullSpecificGenre(int genreID)
         {
+            //Pulls genre name based on ID from SQL DB
             Genres pulledGenre = new Genres();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -60,6 +84,7 @@ namespace Game_Collector.DAL
 
         public void PushGenre(int genreId, string genreName)
         {
+            //Pushes a new genre id and name into SQL DB
             using(SqlConnection connection = new SqlConnection(connectionString))
                 {
                 connection.Open();

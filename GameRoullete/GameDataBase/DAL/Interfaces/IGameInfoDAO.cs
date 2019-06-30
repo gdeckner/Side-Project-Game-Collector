@@ -15,9 +15,9 @@ namespace Game_Collector.DAL.Interfaces
         //Pulls game from local based on closest Match
         GameInfo PullGameInfo(string gameName);
 
-        List<GameInfo> PullMuliGameInfo(string gameName);
+        IList<GameInfo> PullMuliGameInfo(string gameName);
 
         //Adds game info to DB 
-        void PushGameInfo(int gameId, string gameName, string gameDescription, int genreID, int platformID,int franchiseId, int coverId,int ratingId);
+        void PushGameInfo(int gameId, string gameName, string gameDescription, int [] genreID, int [] platformID,int franchiseId, int coverId,int ratingId);
     }
 }

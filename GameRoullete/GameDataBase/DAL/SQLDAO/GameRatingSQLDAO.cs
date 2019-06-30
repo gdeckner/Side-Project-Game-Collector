@@ -19,6 +19,7 @@ namespace Game_Collector.DAL
 
         public GameRating PullGameRating(int rating_Id)
         {
+            //Pulls Rating info based on the id
             GameRating pulledGameRating = new GameRating();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -43,6 +44,7 @@ namespace Game_Collector.DAL
 
         public int PushGameRating(int gameHype, int gamePopularity, int gameRatingCount, int gameTotalRating)
         {
+            //Pushes Rating info into DB
             int ratingId;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
