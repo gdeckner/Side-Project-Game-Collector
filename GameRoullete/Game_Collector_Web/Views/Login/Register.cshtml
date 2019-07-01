@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    string output = (string)ViewData["result"];
+}
+
+<!DOCTYPE html>
+
+@using (Html.BeginForm())
+{
+    <input type="text" name="userName" />
+    <input type="password" name="password1" />
+    <input type="password" name="password2" />
+    <input type="submit" value="Create Account" />
+}
+@output;

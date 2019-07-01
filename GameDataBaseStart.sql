@@ -73,6 +73,8 @@ owned bit default 0,
 wishlist bit default 0
 
 )
+select *
+from UserInfo
 
 
 
