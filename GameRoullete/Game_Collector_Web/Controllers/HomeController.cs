@@ -17,6 +17,10 @@ namespace Game_Collector_Web.Controllers
         {
             return View();
         }
+        public IActionResult Register()
+        {
+            return RedirectToAction("Register", "Login");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
