@@ -6320,23 +6320,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dredroth\\.nuget\\packages\\": {},
+    "C:\\Users\\georgd\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\MediatorIntegrationTesting\\MediatorIntegrationTesting.csproj",
+      "projectUniqueName": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\MediatorIntegrationTesting\\MediatorIntegrationTesting.csproj",
       "projectName": "MediatorIntegrationTesting",
-      "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\MediatorIntegrationTesting\\MediatorIntegrationTesting.csproj",
-      "packagesPath": "C:\\Users\\Dredroth\\.nuget\\packages\\",
-      "outputPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\MediatorIntegrationTesting\\obj\\",
+      "projectPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\MediatorIntegrationTesting\\MediatorIntegrationTesting.csproj",
+      "packagesPath": "C:\\Users\\georgd\\.nuget\\packages\\",
+      "outputPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\MediatorIntegrationTesting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dredroth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\georgd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6349,8 +6349,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
-              "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj"
+            "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
+              "projectPath": "C:\\Game Collector_Roullette Side Project\\GameRoullete\\GameDataBase\\GameDataBase.csproj"
             }
           }
         }
