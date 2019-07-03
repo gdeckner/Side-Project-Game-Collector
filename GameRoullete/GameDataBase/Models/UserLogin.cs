@@ -9,8 +9,8 @@ namespace Game_Collector.Models
 {
    public class UserLogin
     {
-        public int userId { get; set; } //Primary Key
-        public string userName { get; set; } //Current System User
+        public int userId { get; set; } //Probably can be deleted, tables were changed
+        public string userName { get; set; } 
         
        
         

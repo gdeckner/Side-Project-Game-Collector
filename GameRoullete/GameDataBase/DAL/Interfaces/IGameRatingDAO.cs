@@ -10,7 +10,7 @@ namespace Game_Collector.DAL.Interfaces
     public interface IGameRatingDAO
     {
        
-        //Pulls game rating based on gameID
+        //Pulls game rating from SQL Server
         GameRating PullGameRating(int rating_Id);
 
         //Inserts gameRating values into the DB

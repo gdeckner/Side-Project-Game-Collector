@@ -11,6 +11,8 @@ using System.Text;
 
 namespace GameDataBase
 {
+    //TODO Use a single json file to generate connectionString/Certificate along not hard coding apikey into program
+    // Also might need to add checkers inside push methods incase of the IGDB pulling something that already exists
     public class DataBaseMediator
     {
         public string ReturnMessage { get; set; }

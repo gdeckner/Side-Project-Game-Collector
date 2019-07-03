@@ -44,13 +44,14 @@ namespace GameDataBase.DAL.IGDBDAO
         {
             //Creates a new list of games
             IList<GameInfo> pulledGames = new List<GameInfo>();
-            //Setting our query string up for IGDB
+            //Setting our query string up for IGDB  **TODO Clean up query
             gameName = "search " + "\"" + gameName + "\"" + ";fields * ;";
             //Creates IGDB client using our apiKey
             var igdb = IGDB.Client.Create(Environment.GetEnvironmentVariable(apiKey)); 
             igdb.ApiKey = apiKey;
             //Queries IGDB and pulls all the game info then creates a GameInfo class and sets the values then returns it all as a list of games
             var games = Task.Run(() => igdb.QueryAsync<Game>(IGDB.Client.Endpoints.Games, query: gameName)).Result; 
+            //Converts values that are null to 0
             for(int i = 0;i<games.Count();i++)
             {
                 int? popularity = (int?)games[i].Popularity;
@@ -62,7 +63,7 @@ namespace GameDataBase.DAL.IGDBDAO
                 int? hype = (int?)games[i].Hypes;
                 if (hype == null) { hype = 0; }
 
-                //Ratings are only available from querying games on IGDB, due to this creating the Rating here is neccessary to reduce queries(limit is 10k a month for free)
+                //Ratings are only available from querying games on IGDB, Ratings are only available by querying games from IGDB, putting it here reduces amount of queries
                 int newRatingId = daoPushRating.PushGameRating((int)hype, (int)popularity, (int)totalRating, (int)totalRatingCount);
                 GameInfo newGame = new GameInfo
                 {

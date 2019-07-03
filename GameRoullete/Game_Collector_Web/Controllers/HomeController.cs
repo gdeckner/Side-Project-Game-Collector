@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Game_Collector_Web.Controllers
 {
+    //TODO Switch to authentication, page displayed is based on whether user is logged in or not. not allowed to access login register if logged in, will reroute
     public class HomeController : Controller
     {
         private bool loggedIn { get

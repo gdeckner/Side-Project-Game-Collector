@@ -10,13 +10,13 @@ namespace Game_Collector.DAL.Interfaces
     public interface IFranchisesDAO
     {
         
-        //Inserts Franchise ID and String into DB
+        //Primarly used to insert new franchise info into SQL database
         void PushFranchise(int franchiseID,string name);
 
-        //Checks if FranchiseID exists
+        //Primarly used to check if data exists in the SQL database
         bool CheckFranchiseID(int franchiseID);
 
-        //Pulls franchise name based on ID
+        //Pulls franchise based on its ID from a database
         Franchises PullSpecificFranchise(int franchiseID);
 
     
