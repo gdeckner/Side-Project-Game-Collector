@@ -34,10 +34,10 @@ namespace GameDataBase.test.DAL
         {
             GameRating test = new GameRating();
             test = dao.PullGameRating(rtingID);
-            Assert.AreEqual(100, test.game_popularity);
-            Assert.AreEqual(200, test.game_Hype);
-            Assert.AreEqual(5, test.game_Total_Rating);
-            Assert.AreEqual(7, test.game_Total_Rating_Count);
+            Assert.AreEqual(100, test.Game_popularity);
+            Assert.AreEqual(200, test.Game_Hype);
+            Assert.AreEqual(5, test.Game_Total_Rating);
+            Assert.AreEqual(7, test.Game_Total_Rating_Count);
         }
         [TestMethod]
         public void PushGameRatingTest()
@@ -46,8 +46,8 @@ namespace GameDataBase.test.DAL
             GameRating test = new GameRating();
            newRatingId = dao.PushGameRating(9000, 51, 23, 55);
             test = dao.PullGameRating(newRatingId);
-            Assert.AreEqual(rtingID + 1, test.rating_Id);
-            Assert.AreEqual(51, test.game_popularity);
+            Assert.AreEqual(rtingID + 1, test.Rating_Id);
+            Assert.AreEqual(51, test.Game_popularity);
 
         }
 

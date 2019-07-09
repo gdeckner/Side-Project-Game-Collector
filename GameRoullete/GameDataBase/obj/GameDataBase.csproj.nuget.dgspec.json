@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {}
+    "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {}
   },
   "projects": {
-    "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
+    "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
+        "projectUniqueName": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
         "projectName": "GameDataBase",
-        "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
+        "projectPath": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
         "packagesPath": "C:\\Users\\Dredroth\\.nuget\\packages\\",
-        "outputPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\obj\\",
+        "outputPath": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

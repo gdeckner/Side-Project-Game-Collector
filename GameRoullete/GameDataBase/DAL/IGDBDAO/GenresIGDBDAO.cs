@@ -40,8 +40,8 @@ namespace GameDataBase.DAL.IGDBDAO
             {
                 Genres newGenre = new Genres
                 {
-                    genre_iD = (int)getGenre[i].Id,
-                    genre_Name = (string)getGenre[i].Name
+                    Genre_iD = (int)getGenre[i].Id,
+                    Genre_Name = (string)getGenre[i].Name
                 };
                 pulledGenreList.Add(newGenre);
 
@@ -58,8 +58,8 @@ namespace GameDataBase.DAL.IGDBDAO
             var getGenre = Task.Run(() => igdb.QueryAsync<Genre>(IGDB.Client.Endpoints.Genres, query: $"fields *;where id = {genreID};")).Result;
             Genres pulledGenre = new Genres
             {
-                genre_iD = (int)getGenre.First().Id,
-                genre_Name = (string)getGenre.First().Name
+                Genre_iD = (int)getGenre.First().Id,
+                Genre_Name = (string)getGenre.First().Name
 
             };
             return pulledGenre;

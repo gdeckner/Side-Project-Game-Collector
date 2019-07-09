@@ -52,8 +52,8 @@ namespace Game_Collector.DAL
                 {
                     Genres newGenre = new Genres
                     {
-                        genre_iD = (int)reader["genre_id"],
-                        genre_Name = (string)reader["genre_name"]
+                        Genre_iD = (int)reader["genre_id"],
+                        Genre_Name = (string)reader["genre_name"]
                     };
                     pulledGenres.Add(newGenre);
                 }
@@ -73,10 +73,10 @@ namespace Game_Collector.DAL
                 where genre_id = @genreId";
                 cmd.Parameters.AddWithValue("@genreId", genreID);
                 SqlDataReader reader = cmd.ExecuteReader();
-                 while(reader.Read())
+                while (reader.Read())
                 {
-                    pulledGenre.genre_iD = (int)reader["genre_id"];
-                    pulledGenre.genre_Name = (string)reader["genre_name"];
+                    pulledGenre.Genre_iD = (int)reader["genre_id"];
+                    pulledGenre.Genre_Name = (string)reader["genre_name"];
                 }
             }
             return pulledGenre;
@@ -85,8 +85,8 @@ namespace Game_Collector.DAL
         public void PushGenre(int genreId, string genreName)
         {
             //Pushes a new genre id and name into SQL DB
-            using(SqlConnection connection = new SqlConnection(connectionString))
-                {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
                 connection.Open();
                 SqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = @"insert into Genres (genre_id,genre_name)
@@ -95,6 +95,38 @@ namespace Game_Collector.DAL
                 cmd.Parameters.AddWithValue("@genreName", genreName);
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public IList<Genres> PullGenreList(int[] genreArray)
+        {
+            IList<Genres> pulledGenres = new List<Genres>();
+
+            foreach (int x in genreArray)
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = connection.CreateCommand();
+
+                    cmd.CommandText = @"select * from Genres
+                    where genre_id = @genreId";
+                    cmd.Parameters.AddWithValue("@genreId", x);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Genres pulledGenre = new Genres
+                        {
+                            Genre_iD = (int)reader["genre_id"],
+                            Genre_Name = (string)reader["genre_name"]
+                        };
+                        pulledGenres.Add(pulledGenre);
+                    }
+
+                }
+            }
+
+
+            return pulledGenres;
         }
     }
 }

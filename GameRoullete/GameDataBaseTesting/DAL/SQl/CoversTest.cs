@@ -36,8 +36,8 @@ namespace GameDataBase.test.DAL
         {
             Covers test = new Covers();
             test = dao.PullCover(123);
-            Assert.AreEqual(123, test.cover_ID);
-            Assert.AreEqual("testurl.com", test.cover_Url);
+            Assert.AreEqual(123, test.Cover_ID);
+            Assert.AreEqual("testurl.com", test.Cover_Url);
 
         }
         [TestMethod]
@@ -54,12 +54,12 @@ namespace GameDataBase.test.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 while(reader.Read())
                 {
-                    test.cover_ID = (int)reader["cover_id"];
-                    test.cover_Url = (string)reader["cover_url"];
+                    test.Cover_ID = (int)reader["cover_id"];
+                    test.Cover_Url = (string)reader["cover_url"];
                 }
             }
-            Assert.AreEqual(666, test.cover_ID);
-            Assert.AreEqual("newurltest.com", test.cover_Url);
+            Assert.AreEqual(666, test.Cover_ID);
+            Assert.AreEqual("newurltest.com", test.Cover_Url);
                
 
         }
@@ -70,8 +70,8 @@ namespace GameDataBase.test.DAL
             Covers test = new Covers();
             test = dao.PullCover(666);
             Assert.AreEqual(true, dao.CheckCoverValid(666));
-            Assert.AreEqual(666, test.cover_ID);
-            Assert.AreEqual("newurltest.com", test.cover_Url);
+            Assert.AreEqual(666, test.Cover_ID);
+            Assert.AreEqual("newurltest.com", test.Cover_Url);
             
         }
     }

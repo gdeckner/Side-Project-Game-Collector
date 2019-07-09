@@ -8,7 +8,7 @@ namespace Game_Collector.Models
 {
     public class Franchises
     {
-        public int franchise_Id { get; set; } //Primary Key
-        public string franchise_Name { get; set; } //Not null
+        public int Franchise_Id { get; set; } //Primary Key
+        public string Franchise_Name { get; set; } //Not null
     }
 }

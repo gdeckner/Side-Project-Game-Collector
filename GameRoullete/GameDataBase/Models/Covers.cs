@@ -8,7 +8,7 @@ namespace Game_Collector.Models
 {
     public class Covers
     {
-        public int cover_ID {get;set;} //Primary Key
-        public string cover_Url { get; set; }
+        public int Cover_ID {get;set;} //Primary Key
+        public string Cover_Url { get; set; }
     }
 }

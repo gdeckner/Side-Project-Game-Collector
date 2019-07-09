@@ -31,11 +31,11 @@ namespace Game_Collector.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    pulledGameRating.game_Hype = (int)reader["hype"];
-                    pulledGameRating.game_popularity = (int)reader["popularity"];
-                    pulledGameRating.rating_Id = rating_Id;
-                    pulledGameRating.game_Total_Rating = (int)reader["rating"];
-                    pulledGameRating.game_Total_Rating_Count = (int)reader["rating_count"];
+                    pulledGameRating.Game_Hype = (int)reader["hype"];
+                    pulledGameRating.Game_popularity = (int)reader["popularity"];
+                    pulledGameRating.Rating_Id = rating_Id;
+                    pulledGameRating.Game_Total_Rating = (int)reader["rating"];
+                    pulledGameRating.Game_Total_Rating_Count = (int)reader["rating_count"];
                 }
 
             }

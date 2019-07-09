@@ -84,9 +84,11 @@ namespace GameDataBase.test.DAL
             
         }
         [TestMethod]
-        public void MultiPullGameTest()
+        public void PullGamebyIDTest()
         {
-
+            GameInfo test = new GameInfo();
+            test = dao.PullGameByID(200);
+            Assert.AreEqual("CW 01", test.gameName);
         }
         [TestMethod]
         public void FullGameInfoTest()

@@ -8,7 +8,7 @@ namespace Game_Collector.Models
 {
     public class Genres
     {
-       public int genre_iD { get; set; } //Primary Key
-       public string genre_Name { get; set; }
+       public int Genre_iD { get; set; } //Primary Key
+       public string Genre_Name { get; set; }
     }
 }

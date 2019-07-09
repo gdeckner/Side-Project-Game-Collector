@@ -55,8 +55,8 @@ namespace Game_Collector.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                while(reader.Read())
                 {
-                    pulledCover.cover_ID = (int)reader["cover_id"];
-                    pulledCover.cover_Url = (string)reader["cover_url"];
+                    pulledCover.Cover_ID = (int)reader["cover_id"];
+                    pulledCover.Cover_Url = (string)reader["cover_url"];
                 }
                 
             }

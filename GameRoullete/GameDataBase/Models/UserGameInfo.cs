@@ -8,11 +8,11 @@ namespace Game_Collector.Models
 {
     public class UserGameInfo
     {
-        public int entry_Id { get; set; }
-        public int game_Id { get; set; }
-        public bool game_isOwned { get; set; }
-        public bool game_onWish { get; set; }
-        public double game_Progress { get; set; }
-        public string user_name { get; set; }
+        public int Entry_Id { get; set; }
+        public int Game_Id { get; set; }
+        public bool Game_isOwned { get; set; }
+        public bool Game_onWish { get; set; }
+        public double Game_Progress { get; set; }
+        public string User_name { get; set; }
     }
 }

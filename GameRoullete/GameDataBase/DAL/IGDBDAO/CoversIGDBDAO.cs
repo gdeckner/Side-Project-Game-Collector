@@ -33,8 +33,8 @@ namespace GameDataBase.DAL.IGDBDAO
             var coverImage = Task.Run(()=> igdb.QueryAsync<Cover>(IGDB.Client.Endpoints.Covers, query: $"fields *; where id = {coverId};" )).Result;
             Covers newCover = new Covers
             {
-                cover_ID = coverId,
-                cover_Url = @"https://images.igdb.com/igdb/image/upload/t_cover_big/" + $"{coverImage[0].ImageId}.jpg"
+                Cover_ID = coverId,
+                Cover_Url = @"https://images.igdb.com/igdb/image/upload/t_cover_big/" + $"{coverImage[0].ImageId}.jpg"
             };
             return newCover;
         }

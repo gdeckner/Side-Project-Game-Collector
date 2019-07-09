@@ -2,6 +2,7 @@
 using Game_Collector.Models;
 using Game_Collector.Security;
 using GameDataBase.DAL.IGDBDAO;
+using GameDataBase.Models;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -53,11 +54,12 @@ namespace GameDataBase
         private PlatformsIGDBDAO platformsInfoIGDBDAO;
         private CoversIGDBDAO coversIGDBDAO;
         private FranchisesIGDBDAO franchisesIGDBDAO;
-        
+
 
         PasswordHasher hash = new PasswordHasher();
         public DataBaseMediator()
         {
+            platformsSQLDAO = new PlatformsSQLDAO(ConnectionString);
             coverSQLDAO = new CoversSQLDAO(ConnectionString);
             franchiseSQLDAO = new FranchisesSQLDAO(ConnectionString);
             gameInfoSQLDAO = new GameInfoSQLDAO(ConnectionString);
@@ -78,14 +80,14 @@ namespace GameDataBase
 
             return validLogin;
         }
-        public bool ChangePassword(string userName,string oldpassword,string newPassword1,string newPassword2)
+        public bool ChangePassword(string userName, string oldpassword, string newPassword1, string newPassword2)
         {
             bool changedPassword;
             //Verifies that the account and old password are valid
-            if(userLoginSQLDAO.CheckLogin(userName,oldpassword))
+            if (userLoginSQLDAO.CheckLogin(userName, oldpassword))
             {
                 //Verifies that password matches and meets criteria 
-                if(ValidPassword(newPassword1,newPassword2))
+                if (ValidPassword(newPassword1, newPassword2))
                 {
                     changedPassword = true;
                     //Once verified it will change the password
@@ -103,26 +105,26 @@ namespace GameDataBase
 
             return changedPassword;
         }
-        public bool ValidPassword(string password1,string password2)
+        public bool ValidPassword(string password1, string password2)
         {
             //Verifies password match and meet criteria of at least 8 in length, has one upper, contains number and special character
-            bool validPassword = (password1.Equals(password2) && password1.Length >= 8 && password1.Any( x=> char.IsUpper(x)))
-            && password1.Any(x=>char.IsNumber(x)) && password1.Any(x=> ! char.IsLetterOrDigit(x));
+            bool validPassword = (password1.Equals(password2) && password1.Length >= 8 && password1.Any(x => char.IsUpper(x)))
+            && password1.Any(x => char.IsNumber(x)) && password1.Any(x => !char.IsLetterOrDigit(x));
 
             return validPassword;
         }
-        public string CreateLogin(string userName,string password1,string password2)
+        public string CreateLogin(string userName, string password1, string password2)
         {
             string result;
             //Makes sure user name does not exist already
-            if(userLoginSQLDAO.CheckIfUserNameExists(userName))
+            if (userLoginSQLDAO.CheckIfUserNameExists(userName))
             {
                 result = "Username already exists, please try a different one";
             }
             else
             {
                 //Makes sure password matches and meets criteria 
-                if(ValidPassword(password1,password2))
+                if (ValidPassword(password1, password2))
                 {
                     userLoginSQLDAO.CreateLogin(userName, password1);
                     result = "Account was succesfully created!";
@@ -167,7 +169,7 @@ namespace GameDataBase
                 {
                     Covers newCover = new Covers();
                     newCover = coversIGDBDAO.PullCover(x.coverID);
-                    coverSQLDAO.PushCover(newCover.cover_ID, newCover.cover_Url);
+                    coverSQLDAO.PushCover(newCover.Cover_ID, newCover.Cover_Url);
                 }
 
             }
@@ -181,7 +183,7 @@ namespace GameDataBase
                 {
                     Franchises newFranchise = new Franchises();
                     newFranchise = franchisesIGDBDAO.PullSpecificFranchise(x.franchiseID);
-                    franchiseSQLDAO.PushFranchise(newFranchise.franchise_Id, newFranchise.franchise_Name);
+                    franchiseSQLDAO.PushFranchise(newFranchise.Franchise_Id, newFranchise.Franchise_Name);
                 }
 
             }
@@ -195,7 +197,31 @@ namespace GameDataBase
                 gameInfoSQLDAO.PushGameInfo(x.game_ID, x.gameName, x.gameDescription, x.genreID, x.platformID, x.franchiseID, x.coverID, x.ratingId);
             }
         }
-        
+        public IList<DisplayResults> GetUserList(string username)
+        {
+            IList<DisplayResults> getUserGames = new List<DisplayResults>();
+
+            IList<UserGameInfo> userGame = new List<UserGameInfo>();
+            userGame = userGameInfoSQLDAO.PullUserGameInfo(username);
+
+            foreach (UserGameInfo x in userGame)
+            {
+                DisplayResults newGameResult = new DisplayResults();
+                newGameResult.UserGameInfo = x;
+                newGameResult.GameInfo = gameInfoSQLDAO.PullGameByID(x.Game_Id);
+                newGameResult.Rating = gameRatingSQLDAO.PullGameRating(newGameResult.GameInfo.ratingId);
+                newGameResult.Franchise = franchiseSQLDAO.PullSpecificFranchise(newGameResult.GameInfo.franchiseID);
+                newGameResult.Genre = genresSQLDAO.PullGenreList(newGameResult.GameInfo.genreID);
+                newGameResult.Platform = platformsSQLDAO.PullPlatformList(newGameResult.GameInfo.platformID);
+
+                getUserGames.Add(newGameResult);
+            }
+
+
+
+            return getUserGames;
+        }
+
 
 
     }

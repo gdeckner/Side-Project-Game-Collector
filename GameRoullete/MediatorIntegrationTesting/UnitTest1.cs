@@ -1,8 +1,10 @@
 using Game_Collector.DAL;
 using Game_Collector.Models;
 using GameDataBase;
+using GameDataBase.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
@@ -44,10 +46,12 @@ namespace MediatorIntegrationTesting
             }
         }
         DataBaseMediator mediator = new DataBaseMediator();
-
+        public int rtingID;
         [TestInitialize]
+
         public virtual void Setup()
         {
+
             daoCovers = new CoversSQLDAO(ConnectionString);
             daoGameInfo = new GameInfoSQLDAO(ConnectionString);
             daoRatings = new GameRatingSQLDAO(ConnectionString);
@@ -71,6 +75,29 @@ namespace MediatorIntegrationTesting
                 cmd.ExecuteNonQuery();
 
             }
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"
+                insert into Franchises (franchise_id,franchise_name) values(0,'No Franchise')
+                insert into Covers (cover_id,cover_url) values(0,'testurl.com')
+                insert into Genres (genre_id,genre_name) values(0,'Test Genre')
+                insert into Platforms (platform_id,platform_name) values (0,'PizzaPiGameRunner')
+                insert into Ratings (popularity,hype,rating,rating_count) values (100,200,5,7)
+                select scope_identity()";
+
+                rtingID = Convert.ToInt32(cmd.ExecuteScalar());
+                cmd.CommandText = @"insert into Games(game_id, game_name, rating_id, platform_id_array, cover_id, genre_id_array, franchise_id, game_description)
+                values(200, 'CW 01', @ratingId, 0, 0, 0, 0, 'Coder wars the start!'),(300,'Faja',@ratingId,0,0,0,0,'Mr Taco presents')";
+                cmd.Parameters.AddWithValue("@ratingId", rtingID);
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = @"insert into UserInfo (userName,password,salt) values ('testUser','password','salt')";
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = @"insert into UserGameInfo (userName,game_id,progress,owned,wishlist)
+                 values ('testUser',200,0,1,0)";
+                cmd.ExecuteNonQuery();
+            }
 
 
         }
@@ -90,7 +117,7 @@ namespace MediatorIntegrationTesting
             mediator.PushCoversIntoSQL(testList);
             Covers test = new Covers();
             test = daoCovers.PullCover(55403);
-            Assert.AreEqual(@"https://images.igdb.com/igdb/image/upload/t_cover_big/bcotwv6rapvdglcahxi3.jpg", test.cover_Url);
+            Assert.AreEqual(@"https://images.igdb.com/igdb/image/upload/t_cover_big/bcotwv6rapvdglcahxi3.jpg", test.Cover_Url);
         }
         [TestMethod]
         public void FranchiseAddToSQLTest()
@@ -100,8 +127,8 @@ namespace MediatorIntegrationTesting
             mediator.PushFranchiseIntoSQL(testList);
             Franchises test = new Franchises();
             test = daoFranchises.PullSpecificFranchise(137);
-            Assert.AreEqual(137, test.franchise_Id);
-            Assert.AreEqual("Halo", test.franchise_Name);
+            Assert.AreEqual(137, test.Franchise_Id);
+            Assert.AreEqual("Halo", test.Franchise_Name);
         }
         [TestMethod]
         public void RatingsAddToSQLTest() //Testing is limited due to the values always changing
@@ -110,9 +137,9 @@ namespace MediatorIntegrationTesting
             testList = mediator.GetGames("Halo", false);
             GameRating testRating = new GameRating();
             testRating = daoGameRatings.PullGameRating(testList[0].ratingId);
-            Assert.AreEqual(0, testRating.game_Hype);
-           
-            
+            Assert.AreEqual(0, testRating.Game_Hype);
+
+
 
         }
 
@@ -128,19 +155,27 @@ namespace MediatorIntegrationTesting
         [TestMethod]
         public void LoginFunctionsTest()
         {
-            Assert.AreEqual("Account was succesfully created!", mediator.CreateLogin("testUser", @"testPassword1!", @"testPassword1!"));
+            Assert.AreEqual("Account was succesfully created!", mediator.CreateLogin("testNewUser", @"testPassword1!", @"testPassword1!"));
             Assert.AreEqual("Passwords either do not match or do not fit the criteria, Passwords must be 8 in length, contain one number,one uppercase" +
-                        "and one special character", mediator.CreateLogin("testUserAgain","w", "w"));
-            Assert.AreEqual("Username already exists, please try a different one", mediator.CreateLogin("testUser","wewe","wewe"));
+                        "and one special character", mediator.CreateLogin("testUserAgain", "w", "w"));
+            Assert.AreEqual("Username already exists, please try a different one", mediator.CreateLogin("testNewUser", "wewe", "wewe"));
 
-            Assert.AreEqual(true, mediator.Login("testUser", "testPassword1!"));
-            Assert.AreEqual(true, mediator.Login("testuser", "testPassword1!"));
-            Assert.AreEqual(false, mediator.Login("testUser", "testpassword1!"));
-            Assert.AreEqual(false, mediator.ChangePassword("testUser", "testPassword1!", "newTestPassword", "newTestPassword"));
-            Assert.AreEqual(true, mediator.ChangePassword("testUser", "testPassword1!", "newTestPassword1!", "newTestPassword1!"));
-            Assert.AreEqual(true, mediator.Login("testuser", "newTestPassword1!"));
-            
+            Assert.AreEqual(true, mediator.Login("testNewUser", "testPassword1!"));
+            Assert.AreEqual(true, mediator.Login("testNewUser", "testPassword1!"));
+            Assert.AreEqual(false, mediator.Login("testNewUser", "testpassword1!"));
+            Assert.AreEqual(false, mediator.ChangePassword("testNewUser", "testPassword1!", "newTestPassword", "newTestPassword"));
+            Assert.AreEqual(true, mediator.ChangePassword("testNewUser", "testPassword1!", "newTestPassword1!", "newTestPassword1!"));
+            Assert.AreEqual(true, mediator.Login("testNewUser", "newTestPassword1!"));
 
+
+        }
+        [TestMethod]
+        public void DisplayUserGameInfoTest()
+        {
+            IList<DisplayResults> testUser = new List<DisplayResults>();
+            testUser = mediator.GetUserList("testuser");
+            Assert.AreEqual(1, testUser.Count);
+            Assert.AreEqual(200, testUser[0].GameInfo.game_ID);
         }
         [TestCleanup]
         public void Cleanup()
