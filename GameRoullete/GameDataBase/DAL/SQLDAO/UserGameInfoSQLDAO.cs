@@ -50,12 +50,12 @@ namespace Game_Collector.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    pulledUserGame.entry_Id = (int)reader["EntryId"];
-                    pulledUserGame.game_Id = (int)reader["game_id"];
-                    pulledUserGame.game_isOwned = (bool)reader["owned"];
-                    pulledUserGame.game_onWish = (bool)reader["wishlist"];
-                    pulledUserGame.game_Progress = (int)reader["progress"];
-                    pulledUserGame.user_name = userId;
+                    pulledUserGame.Entry_Id = (int)reader["EntryId"];
+                    pulledUserGame.Game_Id = (int)reader["game_id"];
+                    pulledUserGame.Game_isOwned = (bool)reader["owned"];
+                    pulledUserGame.Game_onWish = (bool)reader["wishlist"];
+                    pulledUserGame.Game_Progress = (int)reader["progress"];
+                    pulledUserGame.User_name = userId;
                 }
             }
             return pulledUserGame;
@@ -64,6 +64,7 @@ namespace Game_Collector.DAL
         public IList<UserGameInfo> PullUserGameInfo(string userId)
         {
             //Pulls all games associated with user
+            IList<UserGameInfo> userGameInfos = new List<UserGameInfo>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = connection.CreateCommand();
@@ -75,16 +76,17 @@ namespace Game_Collector.DAL
                 {
                     UserGameInfo newGameInfo = new UserGameInfo
                     {
-                        user_name = userId,
-                        game_Id = (int)reader["game_Id"],
-                        game_isOwned = (bool)reader["game_isOwned"],
-                        game_onWish = (bool)reader["game_onWish"],
-                        game_Progress = Convert.ToDouble(reader["game_Progress"]),
-                        entry_Id = (int)reader["entry_Id"]
+                        User_name = userId,
+                        Game_Id = (int)reader["game_Id"],
+                        Game_isOwned = (bool)reader["owned"],
+                        Game_onWish = (bool)reader["wishlist"],
+                        Game_Progress = Convert.ToDouble(reader["progress"]),
+                        Entry_Id = (int)reader["EntryId"]
                     };
+                    userGameInfos.Add(newGameInfo);
                 }
             }
-            return null;
+            return userGameInfos;
         }
 
         public void PushUserGameInfo(string userId, int gameId, int progress, bool owned, bool wish)

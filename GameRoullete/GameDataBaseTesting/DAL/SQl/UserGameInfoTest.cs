@@ -54,9 +54,9 @@ namespace GameDataBase.test.DAL
         {
             UserGameInfo test = new UserGameInfo();
             test = dao.PullSingleUserGameInfo("testUser",200);
-            Assert.AreEqual(false, test.game_onWish);
-            Assert.AreEqual(200, test.game_Id);
-            Assert.AreEqual(true, test.game_isOwned);
+            Assert.AreEqual(false, test.Game_onWish);
+            Assert.AreEqual(200, test.Game_Id);
+            Assert.AreEqual(true, test.Game_isOwned);
         }
         [TestMethod]
         public void PushUserGameInfoTest()
@@ -64,8 +64,8 @@ namespace GameDataBase.test.DAL
             dao.PushUserGameInfo("testUser",300,0,true,false);
             UserGameInfo test = new UserGameInfo();
             test = dao.PullSingleUserGameInfo("testUser", 300);
-            Assert.AreEqual(300, test.game_Id);
-            Assert.AreEqual(0, test.game_Progress);
+            Assert.AreEqual(300, test.Game_Id);
+            Assert.AreEqual(0, test.Game_Progress);
         }
         [TestMethod]
         public void UpdateOwnedorWishListTest()
@@ -73,8 +73,8 @@ namespace GameDataBase.test.DAL
             dao.UpdateUserGame(200, false, true, "testUser", 50);
             UserGameInfo test = new UserGameInfo();
             test = dao.PullSingleUserGameInfo("testUser", 200);
-            Assert.AreEqual(true, test.game_onWish);
-            Assert.AreEqual("testUser", test.user_name);
+            Assert.AreEqual(true, test.Game_onWish);
+            Assert.AreEqual("testUser", test.User_name);
             
         }
         [TestMethod]

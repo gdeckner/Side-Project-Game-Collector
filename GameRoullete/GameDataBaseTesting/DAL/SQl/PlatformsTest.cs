@@ -39,8 +39,8 @@ namespace GameDataBase.test.DAL
         {
             Platforms test = new Platforms();
             test = dao.PullSpecificPlatform(23);
-            Assert.AreEqual(23, test.platform_Id);
-            Assert.AreEqual("CODE DS", test.platform_Name);
+            Assert.AreEqual(23, test.Platform_Id);
+            Assert.AreEqual("CODE DS", test.Platform_Name);
         }
         [TestMethod]
         public void PushPlatformTest()
@@ -48,8 +48,8 @@ namespace GameDataBase.test.DAL
             dao.PushPlatform(42, "Lifebox 2");
             Platforms test = new Platforms();
             test = dao.PullSpecificPlatform(42);
-            Assert.AreEqual(42, test.platform_Id);
-            Assert.AreEqual("Lifebox 2", test.platform_Name);
+            Assert.AreEqual(42, test.Platform_Id);
+            Assert.AreEqual("Lifebox 2", test.Platform_Name);
         }
         [TestMethod]
         public void PullAllPlatformsTest()
@@ -57,7 +57,14 @@ namespace GameDataBase.test.DAL
             IList<Platforms> test = new List<Platforms>();
             test = dao.PullAllPlatforms();
             Assert.AreEqual(3, test.Count);
-            Assert.AreEqual(1, test[0].platform_Id);
+            Assert.AreEqual(1, test[0].Platform_Id);
+        }
+        [TestMethod]
+        public void PullPlatformByIDTest()
+        {
+            int[] testArray = new int[] { 23, 20, 1 };
+            IList<Platforms> testList = dao.PullPlatformList(testArray);
+            Assert.AreEqual(3, testList.Count);
         }
 
 

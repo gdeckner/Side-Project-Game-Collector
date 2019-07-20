@@ -23,7 +23,7 @@ namespace GameDataBase.test.DAL.IGDB
         public void PullAllPlatformsTest()
         {
             IList<Platforms> test = dao.PullAllPlatforms();
-            test = test.OrderBy(x => x.platform_Id).ToList();
+            test = test.OrderBy(x => x.Platform_Id).ToList();
             Assert.AreEqual(50, test.Count());
 
         }
@@ -32,7 +32,7 @@ namespace GameDataBase.test.DAL.IGDB
         {
             Platforms test = new Platforms();
             test = dao.PullSpecificPlatform(48);
-            Assert.AreEqual("PlayStation 4", test.platform_Name);
+            Assert.AreEqual("PlayStation 4", test.Platform_Name);
         }
     }
 

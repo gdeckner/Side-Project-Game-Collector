@@ -46,12 +46,12 @@ namespace GameDataBase.test.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 while(reader.Read())
                 {
-                    test.franchise_Id = (int)reader["franchise_id"];
-                    test.franchise_Name = (string)reader["franchise_name"];
+                    test.Franchise_Id = (int)reader["franchise_id"];
+                    test.Franchise_Name = (string)reader["franchise_name"];
                 }
             }
-            Assert.AreEqual(340, test.franchise_Id);
-            Assert.AreEqual("A series of unfortunate calls", test.franchise_Name);
+            Assert.AreEqual(340, test.Franchise_Id);
+            Assert.AreEqual("A series of unfortunate calls", test.Franchise_Name);
 
         }
         [TestMethod]
@@ -59,8 +59,8 @@ namespace GameDataBase.test.DAL
         {
             Franchises test = new Franchises();
             test = dao.PullSpecificFranchise(101);
-            Assert.AreEqual(101, test.franchise_Id);
-            Assert.AreEqual("Coder Legacy", test.franchise_Name);
+            Assert.AreEqual(101, test.Franchise_Id);
+            Assert.AreEqual("Coder Legacy", test.Franchise_Name);
         }
       
         [TestMethod]
@@ -70,8 +70,8 @@ namespace GameDataBase.test.DAL
             Franchises test = new Franchises();
             test = dao.PullSpecificFranchise(420);
             Assert.AreEqual(true, dao.CheckFranchiseID(420));
-            Assert.AreEqual(420, test.franchise_Id);
-            Assert.AreEqual("CyberRocker", test.franchise_Name);
+            Assert.AreEqual(420, test.Franchise_Id);
+            Assert.AreEqual("CyberRocker", test.Franchise_Name);
 
 
         }

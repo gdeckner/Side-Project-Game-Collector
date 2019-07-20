@@ -8,7 +8,7 @@ namespace Game_Collector.Models
 {
     public class Platforms
     {
-        public int platform_Id { get; set; } // Primary Key
-        public string platform_Name { get; set; } //Not null
+        public int Platform_Id { get; set; } // Primary Key
+        public string Platform_Name { get; set; } //Not null
     }
 }

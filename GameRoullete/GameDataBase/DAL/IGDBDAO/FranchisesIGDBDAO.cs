@@ -34,8 +34,8 @@ namespace GameDataBase.DAL.IGDBDAO
             var franchiseInfo = Task.Run(()=> igdb.QueryAsync<Franchise>(IGDB.Client.Endpoints.Franchies, query: $"fields *;where id = {franchiseID};")).Result;
             Franchises newFranchise = new Franchises
             {
-                franchise_Id = franchiseID,
-                franchise_Name = franchiseInfo[0].Name
+                Franchise_Id = franchiseID,
+                Franchise_Name = franchiseInfo[0].Name
             };
             return newFranchise;
         }

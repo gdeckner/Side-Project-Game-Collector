@@ -121,5 +121,30 @@ namespace Game_Collector.DAL
             }
             return multiPulledGames;
         }
+        public GameInfo PullGameByID(int gameId)
+        {
+            GameInfo pulledGame = new GameInfo();
+
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"select * from games where game_id = @gameId";
+                cmd.Parameters.AddWithValue("@gameId", gameId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    pulledGame.coverID = (int)reader["cover_id"];
+                    pulledGame.franchiseID = (int)reader["franchise_id"];
+                    pulledGame.gameDescription = (string)reader["game_description"];
+                    pulledGame.gameName = (string)reader["game_name"];
+                    pulledGame.game_ID = (int)reader["game_id"];
+                    pulledGame.genreID = reader["genre_id_array"].ToString().Split(',').Select(x => Convert.ToInt32(x)).ToArray();
+                    pulledGame.platformID = reader["platform_id_array"].ToString().Split(',').Select(x => Convert.ToInt32(x)).ToArray();
+                    pulledGame.ratingId = (int)reader["rating_id"];
+                }
+            }
+            return pulledGame;
+        }
     }
 }

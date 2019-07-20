@@ -66,8 +66,8 @@ namespace Game_Collector.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 while(reader.Read())
                 {
-                    pulledFranchise.franchise_Id = (int)reader["franchise_id"];
-                    pulledFranchise.franchise_Name = (string)reader["franchise_name"];
+                    pulledFranchise.Franchise_Id = (int)reader["franchise_id"];
+                    pulledFranchise.Franchise_Name = (string)reader["franchise_name"];
                 }
             }
             return pulledFranchise;

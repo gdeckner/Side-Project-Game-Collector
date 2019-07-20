@@ -39,8 +39,8 @@ namespace GameDataBase.DAL.IGDBDAO
             {
                 Platforms newPlatform = new Platforms
                 {
-                    platform_Id = (int)getPlatforms[i].Id,
-                    platform_Name = (string)getPlatforms[i].Name
+                    Platform_Id = (int)getPlatforms[i].Id,
+                    Platform_Name = (string)getPlatforms[i].Name
                 };
                 pulledPlatforms.Add(newPlatform);
             }
@@ -56,8 +56,8 @@ namespace GameDataBase.DAL.IGDBDAO
             var getPlatforms = Task.Run(() => igdb.QueryAsync<Platform>(IGDB.Client.Endpoints.Platforms, query: $"fields *; where id ={platformID};")).Result;
             Platforms pulledPlatform = new Platforms
             {
-                platform_Id = platformID,
-                platform_Name = getPlatforms[0].Name
+                Platform_Id = platformID,
+                Platform_Name = getPlatforms[0].Name
             };
 
 

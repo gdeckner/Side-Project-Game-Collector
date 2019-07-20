@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\School Code\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\Game_Collector_Web.csproj": {}
+    "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\Game_Collector_Web.csproj": {}
   },
   "projects": {
-    "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
+    "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
+        "projectUniqueName": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
         "projectName": "GameDataBase",
-        "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
+        "projectPath": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj",
         "packagesPath": "C:\\Users\\Dredroth\\.nuget\\packages\\",
-        "outputPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\obj\\",
+        "outputPath": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -76,14 +76,14 @@
         }
       }
     },
-    "C:\\School Code\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\Game_Collector_Web.csproj": {
+    "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\Game_Collector_Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\School Code\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\Game_Collector_Web.csproj",
+        "projectUniqueName": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\Game_Collector_Web.csproj",
         "projectName": "Game_Collector_Web",
-        "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\Game_Collector_Web.csproj",
+        "projectPath": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\Game_Collector_Web.csproj",
         "packagesPath": "C:\\Users\\Dredroth\\.nuget\\packages\\",
-        "outputPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\obj\\",
+        "outputPath": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\Game_Collector_Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -102,8 +102,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
-                "projectPath": "C:\\School Code\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj"
+              "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj": {
+                "projectPath": "C:\\School Code\\personal-side-projects\\personal-side-projects\\GameRoullete\\GameDataBase\\GameDataBase.csproj"
               }
             }
           }

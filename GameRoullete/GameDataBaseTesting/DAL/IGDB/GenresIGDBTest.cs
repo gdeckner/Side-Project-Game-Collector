@@ -24,9 +24,9 @@ namespace GameDataBase.test.DAL
         public void PullAllGenresTest()
         {
             IList<Genres> test = dao.PullAllGenres();
-            test = test.OrderBy(x => x.genre_iD).ToList();
-            Assert.AreEqual(2, test[0].genre_iD);
-            Assert.AreEqual("Point-and-click", test[0].genre_Name);
+            test = test.OrderBy(x => x.Genre_iD).ToList();
+            Assert.AreEqual(2, test[0].Genre_iD);
+            Assert.AreEqual("Point-and-click", test[0].Genre_Name);
             
         }
         [TestMethod]
@@ -34,7 +34,7 @@ namespace GameDataBase.test.DAL
         {
             Genres test = new Genres();
             test = dao.PullSpecificGenre(2);
-            Assert.AreEqual("Point-and-click", test.genre_Name);
+            Assert.AreEqual("Point-and-click", test.Genre_Name);
         }
     }
 }
